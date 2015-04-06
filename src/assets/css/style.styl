@@ -4,28 +4,50 @@ $theme-color-secondary = #2d84ba
 $theme-font-size = 16px
 $px = (1/$theme-font-size)rem
 
-/* == Reset == */
-html,body,body div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,time,mark,audio,video,details,summary{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;background:transparent}html{overflow-y:scroll}article,aside,figure,footer,header,hgroup,nav,section,details,summary{display:block}img,object,embed{max-width:100%}input,select{vertical-align:middle}.clickable,label,input[type=button],input[type=submit],input[type=file],button{cursor:pointer}html 
 
+/* == Reset == */
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video, details, summary 
+    margin 0
+    padding 0
+    border 0
+    font-size 100%
+    vertical-align baseline
+    background transparent
+                                   
+html 
+  overflow-y scroll
+
+article, aside, figure, footer, header, hgroup, nav, section, details, summary 
+    display block
+ 
+img, object, embed 
+    max-width 100%
+ 
+input, select 
+    vertical-align middle
+ 
+.clickable, label, input[type=button], input[type=submit], input[type=file], button 
+    cursor pointer
+    	
 
 /* == Global == */
 html *
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
 
-*, *:after, *:before
-  -webkit-box-sizing: border-box
-  -moz-box-sizing: border-box
-  box-sizing: border-box
+*, *after, *before
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+  box-sizing border-box
 
 html, body
   /* you need to set this to assign to the main element a min height of 100% */
-  height: 100%
+  height 100%
 
 body
-  font-size: 100%
-  color: #4e6361
-  background-color: #f5f4e9
+  font-size 100%
+  color #4e6361
+  background-color #f5f4e9
 
 svg 
   path
@@ -44,62 +66,63 @@ svg
 .application 
   overflow-x hidden
     
-.main-area {
-  min-height: 100%;
-  position: relative;
-  z-index: 2;
-  -webkit-transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  -webkit-transition-property: -webkit-transform;
-  -moz-transition-property: -moz-transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-}
+.main-area
+  min-height 100%
+  position relative
+  z-index 2
+  transform translateZ(0)
+  -webkit-transform translateZ(0)
+  backface-visibility hidden
+  -webkit-backface-visibility hidden
+  transition-property transform
+  -webkit-transition-property -webkit-transform
+  -moz-transition-property -moz-transform
+  transition-duration 0.4s
+  -webkit-transition-duration 0.4s
+  -moz-transition-duration 0.4s
 
-.show-nav .main-area {
-  -webkit-transform: translateX(260px);
-  -moz-transform: translateX(260px);
-  -ms-transform: translateX(260px);
-  -o-transform: translateX(260px);
-  transform: translateX(260px);
-}
+.show-nav .main-area
+	transform translateX(260px)
+  -webkit-transform translateX(260px)
+  -moz-transform translateX(260px)
+  -ms-transform translateX(260px)
+  -o-transform translateX(260px)
 
-.rendered-nav {
-  position: fixed;
-  height: 100%;
-  left: 0;
-  top: 0;
-  visibility: hidden;
-  z-index: 1;
-  width: 260px;
-  background-color: #242e30;
-  overflow-y: auto;
-  -webkit-transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  -webkit-transition: -webkit-transform .4s 0s, visibility 0s .4s;
-  -moz-transition: -moz-transform .4s 0s, visibility 0s .4s;
-  transition: transform .4s 0s, visibility 0s .4s;
-  -webkit-transform: translateX(-400px);
-  -moz-transform: translateX(-400px);
-  -ms-transform: translateX(-400px);
-  -o-transform: translateX(-400px);
-  transform: translateX(-400px);
-}
+.rendered-nav
+  position fixed
+  height 100%
+  left 0
+  top 0
+  visibility hidden
+  z-index 1
+  width 260px
+  background-color #242e30
+  overflow-y auto
+  transform translateZ(0)
+  -webkit-transform translateZ(0)
+  backface-visibility hidden
+  -webkit-backface-visibility hidden
+  transition transform .4s 0s, visibility 0s .4s
+  -webkit-transition -webkit-transform .4s 0s, visibility 0s .4s
+  -moz-transition -moz-transform .4s 0s, visibility 0s .4s
+  transform translateX(-400px)
+  -webkit-transform translateX(-400px)
+  -moz-transform translateX(-400px)
+  -ms-transform translateX(-400px)
+  -o-transform translateX(-400px)
 
-.show-nav .rendered-nav {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-  visibility: visible;
-  -webkit-transition: -webkit-transform .4s 0s, visibility 0s 0s;
-  -moz-transition: -moz-transform .4s 0s, visibility 0s 0s;
-  transition: transform .4s 0s, visibility 0s 0s;
-  -webkit-overflow-scrolling: touch;
-}
+.show-nav .rendered-nav
+	transform translateX(0)
+  -webkit-transform translateX(0)
+  -moz-transform translateX(0)
+  -ms-transform translateX(0)
+  -o-transform translateX(0)
+  visibility visible
+  transition transform .4s 0s, visibility 0s 0s
+  -webkit-transition -webkit-transform .4s 0s, visibility 0s 0s
+  -moz-transition -moz-transform .4s 0s, visibility 0s 0s
+  overflow-scrolling touch
+  -webkit-overflow-scrolling touch
 
 .show-menu
   top 0
