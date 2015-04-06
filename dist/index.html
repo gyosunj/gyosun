@@ -13,7 +13,7 @@
   <body>
     <div id="application" class="application">
       <div class="main-area">
-        <button type="button" id="showMenu" class="show-menu">Toggle left Slidebar</button>
+        <a href="#" id="showMenu" class="show-menu">< MENU</a>
         <div id="renderedBody" class="rendered-body"></div>
       </div>
       <div id="renderedNav" class="rendered-nav"></div>
@@ -25,7 +25,8 @@
   <script type="text/javascript" src="../vendors/js/walkway.min.js"></script>
   <script type="text/javascript" src="../assets/js/gyosun.min.js"></script>
   <script type="text/javascript">
-      $('#showMenu').click(function (){
+      $('#showMenu').click(function (e){
+        e.preventDefault();
         $('#application').toggleClass('show-nav')
       })
     </script>
