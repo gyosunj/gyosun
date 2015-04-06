@@ -11,13 +11,23 @@
     <link href="../assets/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <div id="renderedBody" class="rendered-body"></div>
-<!--     <div id="renderedNav"></div> -->
+    <div id="application" class="application">
+      <div class="main-area">
+        <button type="button" id="showMenu" class="show-menu">Toggle left Slidebar</button>
+        <div id="renderedBody" class="rendered-body"></div>
+      </div>
+      <div id="renderedNav" class="rendered-nav"></div>
+    </div>
   </body>
   <script type="text/javascript" src="../vendors/js/firebase.min.js"></script>
   <script type="text/javascript" src="../vendors/js/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="../vendors/js/mustache.min.js"></script>
   <script type="text/javascript" src="../vendors/js/walkway.min.js"></script>
   <script type="text/javascript" src="../assets/js/gyosun.min.js"></script>
+  <script type="text/javascript">
+      $('#showMenu').click(function (){
+        $('#application').toggleClass('show-nav')
+      })
+    </script>
 </html>
 
