@@ -1,0 +1,8 @@
+<ul class="nav nav-sidebar">
+  <li><a href="#dashboard/">Dashboard</a></li>
+  <li><a href="#">Design</a></li>
+  <li><a href="#">Code</a></li>
+  <li><a href="#">Photo</a></li>
+  <li><a href="#blog/">Blog</a></li>
+  <li><a href="#">Setting</a></li>
+</ul>

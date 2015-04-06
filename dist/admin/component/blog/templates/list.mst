@@ -1,0 +1,76 @@
+<div class="panel panel-default blog-list">
+  <div class="panel-heading">Blogs</div>
+  <div class="panel-body text-right">
+    <a class="btn btn-primary" href="./#blog/create/">Create New</a>
+  </div>
+  <div class="panel-table">
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>excerpt</th>
+          <th>Updated At</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      {{#items}}
+      <tr>
+        <td></td>
+        <td><a href="./#blog/edit/?id={{key}}">{{title}}</a></td>
+        <td>{{updatedby}}</td>
+        <td>{{excerpt}}</td>
+        <td>{{updatedat.monthName}} {{updatedat.date}} {{updatedat.year}} {{updatedat.hour}}:{{updatedat.min}}:{{updatedat.sec}} ({{updatedat.day}})</td>
+        <td>
+          <a href="#" class="btn btn-danger moveToTrash" data-key="{{key}}" style="display: none;">Move to Trash</a>
+          <a href="#" class="btn btn-primary recoverBlog" data-key="{{key}}" style="display: none;">Recover</a>
+          <a href="#" class="btn btn-danger deleteBlog" data-key="{{key}}" style="display: none;">Delete</a>
+        </td>
+      <tr>
+      {{/items}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-xs-12">
+  <a href="./#blog/trash/" id="trashCan" class="btn btn-default" style="display: none;"><i class="fa fa-trash"></i> Trash Can</a>
+  <a href="./#blog/" id="backToList" class="btn btn-default" style="display: none;"><i class="fa fa-trash"></i> Back to List</a>
+</div>
+
+<script>
+$('.moveToTrash').click(function(e) {
+  e.preventDefault();
+  var thisKey = $(this).data('key');
+  YeSeul.entree.blogs.firebase.sendDatumToTrash(thisKey);
+  location.reload();
+})
+
+$('.recoverBlog').click(function(e) {
+  e.preventDefault();
+  var thisKey = $(this).data('key');
+  YeSeul.entree.blogs.firebase.recoverDatum(thisKey);
+  location.reload();
+})
+
+$('.deleteBlog').click(function(e) {
+  e.preventDefault();
+  var thisKey = $(this).data('key');
+  YeSeul.entree.blogs.firebase.deleteDatum(thisKey);
+  location.reload();
+})
+
+$(document).ready(function() {
+  if (YeSeul.entree.blogs.pageTitle === 'Blogs'){
+    $('.moveToTrash').show();
+    $('#trashCan').show();
+  } else if (YeSeul.entree.blogs.pageTitle === 'Deleted Blogs') {
+    $('.recoverBlog').show();
+    $('.deleteBlog').show();
+    $('#backToList').show();
+  } else {
+    console.error('Unknown Path')
+  }
+});
+</script>
