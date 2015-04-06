@@ -25,8 +25,8 @@
   <script type="text/javascript" src="../vendors/js/walkway.min.js"></script>
   <script type="text/javascript" src="../assets/js/gyosun.min.js"></script>
   <script type="text/javascript">
-      $('#showMenu').click(function (e){
-        e.preventDefault();
+      $('#showMenu').on('click', function(event){
+        event.preventDefault();
         $('#application').toggleClass('show-nav')
       })
     </script>
