@@ -1,8 +1,9 @@
 <div class="nav-items">
-  <div><a href="./" class="nav-item">Home</a></div>
-  <div><a href="./#design" class="nav-item">Design</a></div>
-  <div><a href="./#code" class="nav-item">Code</a></div>
-  <div><a href="./#photo" class="nav-item">Photo</a></div>
-  <div><a href="./#blog" class="nav-item">Blog</a></div>
-  <div><a href="./#contact" class="nav-item">Contact</a></div>
+  <div><h3><a href="./" class="nav-item">.resume</a></h3></div>
+  <div><h3><a href="./#design" class="nav-item">.works</a></h3></div>
+  <div><h3><a href="./#blog" class="nav-item">.blog</a></h3></div>
+  <div><h3><a href="./#contact" class="nav-item">.contact</a></h3></div>
+  <hr>
+  Gyosun Jung  /  kyō · sŭn /
+  me@gyosun.com
 </div>
