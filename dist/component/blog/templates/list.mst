@@ -1,7 +1,7 @@
+<div class="hero-unit blogs-hero-unit"></div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <div class="hero-unit blogs-hero-unit"></div>
       <div class="page-title well well-sm">
         <span class="h5">Recent posts</span>
         <span class="navbar-right">
@@ -17,7 +17,7 @@
             <a href="./#blog/?id={{key}}">{{title}}</a>
           </h2>
           <p class="blogs-item-author">Posted by <a href="/123">{{updatedby}}</a></p>
-          <h3  class="blogs-item-excerpt">{{excerpt}}</h3>
+          <h4 class="blogs-item-excerpt">{{excerpt}}</h4>
         </div>
         <hr />
       {{/items}}

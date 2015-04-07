@@ -90,13 +90,13 @@ $default-tran-speed = .4s
 $fast-tran-speed = $default-tran-speed * 0.5
 $slow-tran-speed = $default-tran-speed * 1.5
 
-$default-button-size = 4rem
+$default-button-size = 3rem
 $large-button-size = $default-button-size * 1.5
 $small-button-size = $default-button-size * 0.5
 
 $navAni-main-transX = 350 * $px
 $navAni-main-transX-sm = 260 * $px
-$navAni-nav-transX = -400 * $px
+$navAni-nav-transX = -350 * $px
 
 $default-margin = 100 * $px
 $default-margin-half = $default-margin * 0.5
@@ -204,35 +204,32 @@ navAni-nav-innerShadow()
   height 100%
   left 0
   top 0
-  visibility hidden
   z-index 1
   width $navAni-main-transX
   background-color $theme-color-secondary
-  overflow-y auto  
-  transF(translateX(0))
-  backfaceV(hidden)  
-  tranS(transform $default-tran-speed 0s, visibility 0s $default-tran-speed)
-  transF(translateX($navAni-nav-transX))
   navAni-nav-innerShadow()
-
-.show-nav .rendered-nav
-  transF(translateX(0))
-  visibility visible
-  tranS(transform $default-tran-speed 0s, visibility 0s 0s)
-  overfScrol(touch)
+  overflow-y auto  
+  transF(translateX($navAni-main-transX * -1))
+  tranS(transform $default-tran-speed 0s)
   
+.show-nav .rendered-nav
+  overfScrol(touch)
+  transF(translateX(0))
+  tranS(transform $default-tran-speed 0s)
+
 @media (max-width: 768px)
   .show-nav .rendered-body, .show-nav .show-nav-btn
     transF(translateX($navAni-main-transX-sm))
 
   .rendered-nav
     width $navAni-main-transX-sm
+    transF(translateX($navAni-main-transX-sm * -1))
 
 
 /* == button == */
 .lines-button 
   display inline-block
-  padding ($default-button-size/2) ($default-button-size/2)
+  padding ($default-button-size/3) ($default-button-size/3) ($default-button-size/2) ($default-button-size/3)
   tranS($default-tran-speed)
   cursor pointer
   background $theme-bg-color
@@ -284,7 +281,7 @@ line(a, b)
 
 @media (max-width: 768px)
   .lines-button 
-    padding ($default-button-size/4) ($default-button-size/4)
+    padding ($default-button-size/10) ($default-button-size/6) ($default-button-size/4) ($default-button-size/6)
   
   .lines 
     line(2, 20)
@@ -342,7 +339,7 @@ line(a, b)
   background-image url("../img/blogs-bg.jpg")
 
 .blog-hero-unit
-  margin-top $default-margin-half
+  background-image url("../img/blog-bg.jpg")
 
 .blogs-item
   padding-top $default-margin-half
@@ -352,6 +349,9 @@ line(a, b)
   font-weight 700
   text-transform uppercase
 
+.blogs-item-excerpt
+  font-weight 400
+
 .blog-item
   margin-top $default-margin
 
@@ -360,5 +360,7 @@ line(a, b)
 
 .blog-content
   margin-top $default-margin
+  
+
 
 /* == .contact == */
