@@ -1,8 +1,18 @@
 /* == Variables == */
 $theme-color-default = #199bc9
-$theme-color-secondary = #2d84ba
+$theme-color-secondary = #1FAB9C
+$theme-bg-color = #F5F4F2
+
 $theme-font-size = 16px
 $px = (1/$theme-font-size)rem
+
+$default-tran-speed = .4s
+$fast-tran-speed = $default-tran-speed - .2s
+$slow-tran-speed = $default-tran-speed + .2s
+
+$default-button-size = 4rem
+$large-button-size = $default-button-size * 1.5
+$small-button-size = $default-button-size * 0.5
 
 
 /* == Reset == */
@@ -29,6 +39,9 @@ input, select
 .clickable, label, input[type=button], input[type=submit], input[type=file], button 
     cursor pointer
       
+button 
+  outline none
+      
 
 /* == Global == */
 html *
@@ -43,50 +56,60 @@ html *
 html, body
   /* you need to set this to assign to the main element a min height of 100% */
   height 100%
+  font-family: 'Lato', 'helvetica', sans-serif;
+  font-size: 16 * $px
+  background-color: $theme-bg-color
 
 body
   font-size 100%
-  color #4e6361
-  background-color #f5f4e9
 
 svg 
   path
-    stroke #fff
-    stroke-width 2px
+    stroke $theme-color-default
+    stroke-width 2 * $px
     fill transparent
   line
-    stroke #fff
-    stroke-width 2px
+    stroke $theme-color-default
+    stroke-width 2 * $px
   polyline
-    stroke #fff
-    stroke-width 2px
+    stroke $theme-color-default
+    stroke-width 2 * $px
     
 
-/* == Share == */
+/* == Sidebar Nav Animation == */
 .application 
   overflow-x hidden
-    
-.main-area
+
+$navAni-main-transX = 350 * $px
+$navAni-main-transX-sm = 260 * $px
+$navAni-nav-transX = -400 * $px
+$navAni-nav-innerShadow()
+  box-shadow inset -10px 0px 50px -12px rgba(64, 64, 64,1)
+  -webkit-box-shadow inset -10px 0px 50px -12px rgba(64, 64, 64,1)
+  -moz-box-shadow inset -10px 0px 50px -12px rgba(64, 64, 64,1)
+
+.rendered-body
   min-height 100%
   position relative
   z-index 2
+  background-color $theme-bg-color
   transform translateZ(0)
   -webkit-transform translateZ(0)
   backface-visibility hidden
   -webkit-backface-visibility hidden
   transition-property transform
-  -webkit-transition-property -webkit-transform
-  -moz-transition-property -moz-transform
-  transition-duration 0.4s
-  -webkit-transition-duration 0.4s
-  -moz-transition-duration 0.4s
+  -webkit-transition-property transform
+  -moz-transition-property transform
+  transition-duration $default-tran-speed
+  -webkit-transition-duration $default-tran-speed
+  -moz-transition-duration $default-tran-speed
 
-.show-nav .main-area
-  transform translateX(260px)
-  -webkit-transform translateX(260px)
-  -moz-transform translateX(260px)
-  -ms-transform translateX(260px)
-  -o-transform translateX(260px)
+.show-nav .rendered-body, .show-nav .show-nav-btn
+  transform translateX($navAni-main-transX)
+  -webkit-transform translateX($navAni-main-transX)
+  -moz-transform translateX($navAni-main-transX)
+  -ms-transform translateX($navAni-main-transX)
+  -o-transform translateX($navAni-main-transX)
 
 .rendered-nav
   position fixed
@@ -95,21 +118,23 @@ svg
   top 0
   visibility hidden
   z-index 1
-  width 260px
-  background-color #242e30
+  width $navAni-main-transX
+  background-color $theme-color-secondary
   overflow-y auto
   transform translateZ(0)
   -webkit-transform translateZ(0)
   backface-visibility hidden
   -webkit-backface-visibility hidden
-  transition transform .4s 0s, visibility 0s .4s
-  -webkit-transition -webkit-transform .4s 0s, visibility 0s .4s
-  -moz-transition -moz-transform .4s 0s, visibility 0s .4s
-  transform translateX(-400px)
-  -webkit-transform translateX(-400px)
-  -moz-transform translateX(-400px)
-  -ms-transform translateX(-400px)
-  -o-transform translateX(-400px)
+  transition transform $default-tran-speed 0s, visibility 0s $default-tran-speed
+  -webkit-transition -webkit-transform $default-tran-speed 0s, visibility 0s $default-tran-speed
+  -moz-transition -moz-transform $default-tran-speed 0s, visibility 0s $default-tran-speed
+  transform translateX($navAni-nav-transX)
+  -webkit-transform translateX($navAni-nav-transX)
+  -moz-transform translateX($navAni-nav-transX)
+  -ms-transform translateX($navAni-nav-transX)
+  -o-transform translateX($navAni-nav-transX)
+  $navAni-nav-innerShadow()
+
 
 .show-nav .rendered-nav
   transform translateX(0)
@@ -118,21 +143,159 @@ svg
   -ms-transform translateX(0)
   -o-transform translateX(0)
   visibility visible
-  transition transform .4s 0s, visibility 0s 0s
-  -webkit-transition -webkit-transform .4s 0s, visibility 0s 0s
-  -moz-transition -moz-transform .4s 0s, visibility 0s 0s
+  transition transform $default-tran-speed 0s, visibility 0s 0s
+  -webkit-transition -webkit-transform $default-tran-speed 0s, visibility 0s 0s
+  -moz-transition -moz-transform $default-tran-speed 0s, visibility 0s 0s
   overflow-scrolling touch
   -webkit-overflow-scrolling touch
+  
+@media (max-width: 768px)
+  .show-nav .rendered-body, .show-nav .show-nav-btn
+    transform translateX($navAni-main-transX-sm)
+    -webkit-transform translateX($navAni-main-transX-sm)
+    -moz-transform translateX($navAni-main-transX-sm)
+    -ms-transform translateX($navAni-main-transX-sm)
+    -o-transform translateX($navAni-main-transX-sm)
 
-.show-menu
+  .rendered-nav
+    width $navAni-main-transX-sm
+
+
+/* == button == */
+.show-nav-btn
   top 0
   left 0
-  padding 50px
-  color red
-      
+  position fixed
+  z-index 9999
+  
+.lines-button 
+  display inline-block
+  padding ($default-button-size/2) ($default-button-size/2)
+  transition $default-tran-speed
+  -webkit-transition $default-tran-speed
+  -moz-transition $default-tran-speed
+  -ms-transition $default-tran-speed
+  -o-transition $default-tran-speed
+  cursor pointer
+  background $theme-bg-color
+  border none
+  &:hover
+    opacity 1
+  &:active
+    transition 0
+    -webkit-transition 0
+    -moz-transition 0
+    -ms-transition 0
+    -o-transition 0
+
+line(a, b)
+  display inline-block
+  width ($default-button-size/a)
+  height ($default-button-size/b)
+  background $theme-color-default
+  border-radius ($default-button-size/14) 
+  transition $default-tran-speed
+  -webkit-transition $default-tran-speed
+  -moz-transition $default-tran-speed
+  -ms-transition $default-tran-speed
+  -o-transition $default-tran-speed
+
+.lines 
+  line(1, 14)
+  position relative 
+  &:before, &:after 
+    line(1, 14)
+    position absolute
+    left:0
+    content ''
+    transform-origin ($default-button-size/14) center
+  &:before 
+    top ($default-button-size/4)
+  &:after  
+    top -($default-button-size/4)
+
+.lines-button.to-x .lines
+  transition background .3s .6s ease
+  -webkit-transition background .3s .6s ease
+  -moz-transition background .3s .6s ease
+  -ms-transition background .3s .6s ease
+  -o-transition background .3s .6s ease
+  &:before, &:after
+    transform-origin 50% 50%
+    transition top .3s .6s ease, transform .3s ease
+    -webkit-transition top .3s .6s ease, transform .3s ease
+    -moz-transition top .3s .6s ease, transform .3s ease
+    -ms-transition top .3s .6s ease, transform .3s ease
+    -o-transition top .3s .6s ease, transform .3s ease
+
+.lines-button.to-x.action .lines
+    transition background .3s 0s ease
+    -webkit-transition background .3s 0s ease
+    -moz-transition background .3s 0s ease
+    -ms-transition background .3s 0s ease
+    -o-transition background .3s 0s ease   
+    background transparent
+    &:before, &:after
+      transition top .3s ease, transform .3s .5s ease   
+      top 0
+      width $default-button-size
+    &:before
+      transform rotate3d(0,0,1,45deg)
+      -webkit-transform rotate3d(0,0,1,45deg)
+      -moz-transform rotate3d(0,0,1,45deg)
+      -ms-transform rotate3d(0,0,1,45deg)
+      -o-transform rotate3d(0,0,1,45deg)  
+    &:after
+      transform rotate3d(0,0,1,-45deg)
+      -webkit-transform rotate3d(0,0,1,-45deg)
+      -moz-transform rotate3d(0,0,1,-45deg)
+      -ms-transform rotate3d(0,0,1,-45deg)
+      -o-transform rotate3d(0,0,1,-45deg)  
+
+@media (max-width: 768px)
+  .lines-button 
+    padding ($default-button-size/4) ($default-button-size/4)
+  
+  .lines 
+    line(2, 20)
+    &:before, &:after 
+      line(2, 20)
+    &:before 
+      top ($default-button-size/8)
+    &:after  
+      top -($default-button-size/8)
+  
+  .lines-button.to-x.action .lines
+    &:before, &:after
+      width inherit
+
+/* == Nav == */
+.nav-items
+  margin 1 * $px
+  margin-top 20 * $px
+  .nav-item 
+    padding 10 * $px
+    color darken($theme-bg-color, 10%)
+    display inline-block
+    width 100%
+    font-size 18 * $px
+    &:hover
+      color lighten($theme-bg-color, 10%)
+      text-decoration none
+      font-weight 700
+    &:active
+      text-decoration none
+
 /* == Front == */
 .gyosun-logo
   height 100vh
   text-align center
   
-  
+
+
+
+
+
+
+
+

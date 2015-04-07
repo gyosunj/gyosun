@@ -12,10 +12,10 @@
   </head>
   <body>
     <div id="application" class="application">
-      <div class="main-area">
-        <a href="#" id="showMenu" class="show-menu">< MENU</a>
-        <div id="renderedBody" class="rendered-body"></div>
-      </div>
+      <button type="button" id="showNavBtn" class="show-nav-btn lines-button to-x">
+        <span class="lines"></span>
+      </button>
+      <div id="renderedBody" class="rendered-body"></div>
       <div id="renderedNav" class="rendered-nav"></div>
     </div>
   </body>
@@ -25,9 +25,10 @@
   <script type="text/javascript" src="../vendors/js/walkway.min.js"></script>
   <script type="text/javascript" src="../assets/js/gyosun.min.js"></script>
   <script type="text/javascript">
-      $('#showMenu').on('click', function(event){
+      $('#showNavBtn').on('click', function(event){
         event.preventDefault();
-        $('#application').toggleClass('show-nav')
+        $('#application').toggleClass('show-nav');
+        $('#showNavBtn').toggleClass('action');
       })
     </script>
 </html>

@@ -241,10 +241,6 @@ YeSeul.restaurant.firebase = 'https://gyosun.firebaseio.com/';
 YeSeul.restaurant.ref = new Firebase(YeSeul.restaurant.firebase);
 YeSeul.restaurant.owner = YeSeul.restaurant.ref.getAuth();
 
-// YeSeul.authData = YeSeul.restaurant.owner //temp
-
-// Temeplate Engine: Mustache
-// TODO: create my own template engine
 YeSeul.dessert.mustache = function (path, arr, target) {
   if (path && target) {
   	var data;
