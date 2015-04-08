@@ -1,0 +1,135 @@
+<h1>detail</h1>
+<!-- <div class="well clearfix">
+  <legend id="pageTitle"data-name="{{thisName}}">{{thisName}}</legend>
+  <div class="col-xs-12">
+    <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+  </div>
+  <div class="form-group form-group-item clearfix">
+    <label for="select" class="col-md-12 col-lg-1">Status</label>
+    <div class="col-xs-11">
+      <div class="toggle-switch clearfix">
+        <label id="toggleSwitchLeft" class="toggle-switch-left toggle-switch-active">Publish</label>
+        <div class="toggle-switch-group">
+            <div class="toggle-switch-bg">
+                <input type="checkbox" id="toggleSwitch" class="toggle-switch-check">
+                <b class="b toggle-switch-btn"></b>
+            </div>
+        </div>
+        <label id="toggleSwitchRight" class="toggle-switch-right">Draft</label>
+    </div>
+    </div>
+  </div>
+  <div class="form-group form-group-item clearfix">
+    <label for="inputTitle" class="col-md-12 col-lg-1">Title</label>
+    <div class="col-xs-11">
+      <input type="text" class="form-control" id="inputTitle" placeholder="Title" value="{{title}}">
+    </div>
+  </div>
+  <div class="form-group form-group-item clearfix">
+    <label for="inputExcerpt" class="col-md-12 col-lg-1">Excerpt</label>
+    <div class="col-xs-11">
+      <textarea class="form-control" rows="3" id="inputExcerpt" placeholder="Excerpt">{{excerpt}}</textarea>
+    </div>
+  </div>
+  <div class="form-group form-group-item clearfix">
+    <label for="inputContent" class="col-md-12 col-lg-1">Content</label>
+    <div class="col-xs-11">
+      <div id="inputContent" class="blog-textarea-content">{{{content}}}</div>
+    </div>
+  </div>
+  <div class="form-group form-group-item clearfix">
+    <label for="inputContent" class="col-md-12 col-lg-1">Tag</label>
+    <div class="col-xs-11">
+      <div class="form-item">
+        <span class="tag label label-success">Success</span><span class="tag label label-success">Success</span><span class="tag label label-success">Success</span><span class="tag label label-success">Success</span><span class="tag label label-success">Success</span>
+      </div>
+      <div class="input-group">  
+        <input type="text" class="form-control" placeholder="+ Add a tag">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Add</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-group-item clearfix">
+    <label for="inputContent" class="col-md-12 col-lg-1">Category</label>
+    <div class="col-xs-11">
+      <div class="input-group form-item">  
+        <input type="text" class="form-control" placeholder="+ Add a categoty or select one from the dropdown menu">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Add</button>
+        </span>
+      </div>
+      <select class="form-control" id="select">
+        <option value="0">Publish</option>
+        <option value="1">Draft</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group form-group-item-btns clearfix">
+    <div class="col-xs-11 col-lg-offset-1 text-right">
+      <span id="btnGroupEdit" style="display: none;">
+        <button type="button" class="btn btn-success" id="btnUpdateBlog" data-key="{{key}}">Update</button>
+      </span>
+      <span id="btnGroupCreate" style="display: none;">
+        <button type="button" class="btn btn-success" id="btnCreateBlog">Create</button>
+      </span>
+      <button type="button" class="btn btn-default" id="btnUpdateBlog" data-key="{{key}}">Save Draft</button>
+      <button type="button" class="btn btn-default" id="btnCancel" >Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#btnCancel').click(function (e) {
+    e.preventDefault();
+    window.location = "/admin/#blog/"
+  });
+
+  $('#btnUpdateBlog').click(function (e) {
+    e.preventDefault();
+    var thisKey = $(this).data('key');
+    var inputData = function () {
+      return { 
+        title: $('#inputTitle').val(), 
+        excerpt: $('#inputExcerpt').val(), 
+        content: $('#inputContent').code(), 
+        updatedat: YeSeul.ingredient.punchClock.now(),
+        updatedby: YeSeul.restaurant.owner.password.email, 
+        trash: 0
+      }
+    };
+    YeSeul.entree.blogs.firebase.updateDatum(inputData(), thisKey);
+    window.location = "/admin/#blog/"
+  });
+
+  $('#btnCreateBlog').click(function (e) {
+    e.preventDefault();
+    var inputData = function () {
+      return { 
+        title: $('#inputTitle').val(), 
+        excerpt: $('#inputExcerpt').val(), 
+        content: $('#inputContent').code(),
+        createdat: YeSeul.ingredient.punchClock.now(),
+        updatedat: YeSeul.ingredient.punchClock.now(),
+        createdby: YeSeul.restaurant.owner.password.email, 
+        updatedby: YeSeul.restaurant.owner.password.email, 
+        trash: 0
+      }
+    };
+    YeSeul.entree.blogs.firebase.createDatum(inputData());
+    window.location = "/admin/#blog/"
+  });
+
+  $(document).ready(function() {
+    $('#inputContent').summernote();
+    if (YeSeul.entree.blog.pageTitle === 'Edit Blog'){
+      $('#btnGroupEdit').show();
+    } else if (YeSeul.entree.blog.pageTitle === 'Create Blog') {
+      $('#btnGroupCreate').show();
+    } else {
+      console.error('Unknown Path')
+    }
+  });
+</script>
+ -->

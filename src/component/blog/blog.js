@@ -4,9 +4,7 @@ YeSeul.entree.blogs.ctrl = function (route) {
   var thisName = route.thisName,
     trash = 0;
   this.pageTitle = thisName;
-  if (thisName === 'Deleted Blogs') {
-    trash = 1;
-  }
+
   YeSeul.entree.blogs.firebase.dbName = 'blogs';
   YeSeul.entree.blogs.firebase.loadData(trash) // num: 1 = deleted item or 0 = not deleted item
     .then(function ( arr ) {

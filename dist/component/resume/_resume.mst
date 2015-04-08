@@ -1,0 +1,178 @@
+
+<div class="col-xs-12 col-sm-5 col-sm-offset-1">
+  <div id="anchor-0" class="resume-desc-col">
+    <div class="full-screen">
+      <div class="gyosun-logo-text">
+        <img src="./assets/img/gyosun_logo_text.svg">
+      </div>
+    </div>
+  </div>
+  <div class="resume-img-col-xs visible-xs-block">
+    <div class="full-screen">
+      <div class="gyosun-logo-simbol">
+        <img src="./assets/img/gyosun_logo_simbol.svg">
+      </div>
+    </div>
+  </div>
+  <div id="anchor-1" class="resume-desc-col">
+    <div class="resume-decs-date">
+      <h1>10 / 2013 ~ Current</h1>
+    </div>
+    <div class="resume-decs-section-title section-client"> 
+      <h6>comapny or client</h6>
+    </div>
+    <div class="resume-decs-client section-client">
+      <h2>Perr&amp;Knight</h2>
+    </div>
+    <div class="resume-decs-section-title section-responsi">
+      <h6>responsibility</h6>
+    </div>
+    <div class="resume-decs-responsi section-responsi">
+      Brand Identity, UI/UX Design, FrontEnd Development
+    </div>
+    <div class="resume-decs-section-title section-related">
+      <h6>related brands, websites or products</h6>
+    </div>
+    <div class="resume-decs-related section-related">
+      perrknight.com, ratefilings.com, statefilings.com
+    </div>
+    <div class="resume-decs-article article-title">
+      <h4>Cras id dui. Duis lobortis massa.</h4>
+    </div>
+    <div class="resume-decs-article article-content">
+      <p>Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Sed libero. Suspendisse potenti.</p>
+      <p>Phasellus viverra nulla ut metus varius laoreet. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Curabitur vestibulum aliquam leo. Cras id dui. Duis lobortis massa imperdiet quam.</p>
+      <p>Monotonectally deliver highly efficient applications and standards compliant interfaces. Compellingly fashion cooperative solutions and an expanded array of best practices. Intrinsicly whiteboard interoperable quality vectors through superior scenarios. Holisticly reintermediate high standards in strategic theme areas vis-a-vis sticky niche markets. Rapidiously administrate global metrics vis-a-vis high-quality platforms.</p>
+      <p>Proactively myocardinate global systems after alternative alignments. Rapidiously provide access to reliable leadership skills whereas maintainable paradigms. Proactively recaptiualize frictionless sources rather than robust quality vectors. Authoritatively synthesize distributed alignments whereas high-quality action items. Quickly architect parallel internal or "organic" sources for superior services.</p>
+      <p>Synergistically evisculate frictionless meta-services and market-driven web services. Synergistically whiteboard dynamic processes before viral technology. Objectively evisculate process-centric expertise after cross-media.</p>
+    </div>
+  </div>
+  <div class="resume-img-col-xs visible-xs-block">
+    <div class="full-screen cover-bg" style="background-image: url('../assets/img/resume/pk01.jpg');">
+    </div>
+  </div>
+  <div id="anchor-2" class="resume-desc-col">
+    <div class="resume-decs-date">
+      <h1>10 / 2013 ~ Current</h1>
+    </div>
+    <div class="resume-decs-section-title section-client"> 
+      <h6>comapny or client</h6>
+    </div>
+    <div class="resume-decs-client section-client">
+      <h2>Perr&amp;Knight</h2>
+    </div>
+    <div class="resume-decs-section-title section-responsi">
+      <h6>responsibility</h6>
+    </div>
+    <div class="resume-decs-responsi section-responsi">
+      Brand Identity, UI/UX Design, FrontEnd Development
+    </div>
+    <div class="resume-decs-section-title section-related">
+      <h6>related brands, websites or products</h6>
+    </div>
+    <div class="resume-decs-related section-related">
+      perrknight.com, ratefilings.com, statefilings.com
+    </div>
+    <div class="resume-decs-article article-title">
+      <h4>Cras id dui. Duis lobortis massa.</h4>
+    </div>
+    <div class="resume-decs-article article-content">
+      <p>Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Sed libero. Suspendisse potenti.</p>
+      <p>Phasellus viverra nulla ut metus varius laoreet. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Curabitur vestibulum aliquam leo. Cras id dui. Duis lobortis massa imperdiet quam.</p>
+      <p>Monotonectally deliver highly efficient applications and standards compliant interfaces. Compellingly fashion cooperative solutions and an expanded array of best practices. Intrinsicly whiteboard interoperable quality vectors through superior scenarios. Holisticly reintermediate high standards in strategic theme areas vis-a-vis sticky niche markets. Rapidiously administrate global metrics vis-a-vis high-quality platforms.</p>
+      <p>Proactively myocardinate global systems after alternative alignments. Rapidiously provide access to reliable leadership skills whereas maintainable paradigms. Proactively recaptiualize frictionless sources rather than robust quality vectors. Authoritatively synthesize distributed alignments whereas high-quality action items. Quickly architect parallel internal or "organic" sources for superior services.</p>
+      <p>Synergistically evisculate frictionless meta-services and market-driven web services. Synergistically whiteboard dynamic processes before viral technology. Objectively evisculate process-centric expertise after cross-media.</p>
+    </div>
+  </div>
+  <div class="resume-img-col-xs visible-xs-block">
+    <div class="full-screen cover-bg" style="background-image: url('../assets/img/resume/pk02.jpg');">
+    </div>
+  </div>
+  <div id="anchor-100" class="resume-desc-col end">
+    <div>
+      Credit
+    </div>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-6 fixed-img hidden-xs">
+  <div class="resume-img-col">
+    <div class="full-screen">
+      <div class="gyosun-logo-simbol">
+        <img src="./assets/img/gyosun_logo_simbol.svg">
+      </div>
+    </div>
+  </div>
+  <div class="resume-img-col">
+    <div class="full-screen cover-bg" style="background-image: url('../assets/img/resume/pk01.jpg');">
+    </div>
+  </div>
+  <div class="resume-img-col">
+    <div class="full-screen cover-bg" style="background-image: url('../assets/img/resume/pk02.jpg');">
+    </div>
+  </div>
+</div>
+
+<script>
+  YeSeul.entree.front.view = (function () {
+    // var gyosunLogoSimbol = new Walkway({
+    //   selector: '#gyosunLogoSimbol',
+    //   duration: '3000',
+    //   easing: function (t) {
+    //     return t * t;
+    //   }
+    // });
+    // var gyosunLogoText = new Walkway({
+    //   selector: '#gyosunLogoText',
+    //   duration: '3000',
+    //   easing: function (t) {
+    //     return t * t;
+    //   }
+    // });
+
+    $(document).ready(function () {
+      // if ($(gyosunLogoSimbol.selector).length != 0 && $(gyosunLogoText.selector).length != 0) {
+      //   var startAfter = 1000;
+      //   setTimeout(function () {
+      //     gyosunLogoText.draw();
+      //   }, startAfter );
+      //   setTimeout(function () {
+      //     gyosunLogoSimbol.draw();
+      //   }, startAfter + 2000 );
+      // } else {
+      //   console.error ('The target does not exist.')
+      // }
+
+      if (window.innerWidth > 768) {
+        // fixed img id must be '#anchor-1'...'#anchor-99'
+        $(function () {
+          var anchors = $('.resume-desc-col'),
+            winH = window.innerHeight,
+            _scrollTop = $(this).scrollTop(),
+            i, 
+            k,
+            anchorArr = [],
+            anchorPointArr = [];
+          for(i=0; i < anchors.length; i++){
+            anchorArr.push($(anchors[i]).attr('id'));
+            anchorPointArr.push($(anchors[i]).offset().top - (winH * 0.9))
+          }
+          $(document).scroll(function () {
+            var _scrollTop = $(this).scrollTop()
+            for(k=1; k <= anchorPointArr.length; k++){
+              if ( _scrollTop >= anchorPointArr[k-1] && _scrollTop < anchorPointArr[k]) {
+                var eachWinH = winH * (k - 1);
+                $('.resume-img-col').css({
+                  'transform': 'translateY(-' + eachWinH + 'px)', 
+                  '-webkit-transform': 'translateY(-' + eachWinH + 'px)',
+                  '-moz-transform': 'translateY(-' + eachWinH + 'px)',
+                  '-ms-transform': 'translateY(-' + eachWinH + 'px)',
+                  '-o-transform': 'translateY(-' + eachWinH + 'px)',
+                })
+              }
+            }
+          });
+        }());
+      }
+    });
+  }());
+</script>

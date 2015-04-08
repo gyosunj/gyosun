@@ -43,10 +43,10 @@ YeSeul.menuGyosun.layoutRoute = {
 YeSeul.menuGyosun.changeRoute = function(param) {
   switch(param) {
     case '':
-      YeSeul.entree.front.ctrl(this.route.front);
+      YeSeul.entree.resumes.ctrl(this.route.resumes);
       break;
     case '/':
-      YeSeul.entree.front.ctrl(this.route.front);
+      YeSeul.entree.resumes.ctrl(this.route.resumes);
       break;
     case '#blog':
       YeSeul.entree.blogs.ctrl(this.route.blogs);
@@ -66,8 +66,8 @@ YeSeul.menuGyosun.route = {
     renderTarget: '#renderedBody',
     onNav: false
   },
-  'front': { thisName: 'Front',
-    renderTemplate: '../component/front/front.mst',
+  'resumes': { thisName: 'Resume',
+    renderTemplate: '../component/resume/resume.mst',
     renderTarget: '#renderedBody',
     onNav: false
   },

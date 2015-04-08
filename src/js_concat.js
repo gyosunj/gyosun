@@ -379,9 +379,7 @@ YeSeul.entree.blogs.ctrl = function (route) {
   var thisName = route.thisName,
     trash = 0;
   this.pageTitle = thisName;
-  if (thisName === 'Deleted Blogs') {
-    trash = 1;
-  }
+
   YeSeul.entree.blogs.firebase.dbName = 'blogs';
   YeSeul.entree.blogs.firebase.loadData(trash) // num: 1 = deleted item or 0 = not deleted item
     .then(function ( arr ) {
@@ -532,19 +530,23 @@ YeSeul.entree.blog.ctrl = function (route, key) {
 
 
 'use strict';
-YeSeul.entree.front = new YeSeul.entree();
-YeSeul.entree.front.ctrl = function (route) {
-  var thisName = route.thisName;
+YeSeul.entree.resumes = new YeSeul.entree();
+YeSeul.entree.resumes.ctrl = function (route) {
+  var thisName = route.thisName,
+    trash = 0;
   this.pageTitle = thisName;
 
-
-
-
-	var arr;
-	YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
+  YeSeul.entree.resumes.firebase.dbName = 'resumes';
+  YeSeul.entree.resumes.firebase.loadData(trash) // num: 1 = deleted item or 0 = not deleted item
+    .then(function ( arr ) {
+      // arr.sort(YeSeul.ingredient.orderBy('desc', 'updatedat', 'fDateTime'));
+      YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
+    })
+    .done(function () { })
+    .fail(function () {
+      console.error (this + ' :failed.');
+    });
 };
-
-
 'use strict';
 YeSeul.menuGyosun = new YeSeul.menu();
 YeSeul.menuGyosun.layoutRoute = {
@@ -590,10 +592,10 @@ YeSeul.menuGyosun.layoutRoute = {
 YeSeul.menuGyosun.changeRoute = function(param) {
   switch(param) {
     case '':
-      YeSeul.entree.front.ctrl(this.route.front);
+      YeSeul.entree.resumes.ctrl(this.route.resumes);
       break;
     case '/':
-      YeSeul.entree.front.ctrl(this.route.front);
+      YeSeul.entree.resumes.ctrl(this.route.resumes);
       break;
     case '#blog':
       YeSeul.entree.blogs.ctrl(this.route.blogs);
@@ -613,8 +615,8 @@ YeSeul.menuGyosun.route = {
     renderTarget: '#renderedBody',
     onNav: false
   },
-  'front': { thisName: 'Front',
-    renderTemplate: '../component/front/front.mst',
+  'resumes': { thisName: 'Resume',
+    renderTemplate: '../component/resume/resume.mst',
     renderTarget: '#renderedBody',
     onNav: false
   },

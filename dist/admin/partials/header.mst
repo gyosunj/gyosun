@@ -12,11 +12,10 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#dashboard/">Dashboard</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">Photo</a></li>
-        <li><a href="#blog/">Blog</a></li>
-        <li><a href="#">Setting</a></li>
+        <li><a href="#resume/">.resume</a></li>
+        <li><a href="#work/">.work</a></li>
+        <li><a href="#blog/">.blog</a></li>
+        <li><a href="#setting/">Setting</a></li>
         <li><a href="#" id="logOut">Logout</a></li>
         <li class="hidden-sm"><a><span id="userEmail"></span></a></li>
       </ul>

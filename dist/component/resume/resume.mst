@@ -1,0 +1,138 @@
+
+<div class="col-xs-12 col-sm-5 col-sm-offset-1">
+  <div id="anchor-0" class="resume-desc-col">
+    <div class="full-screen resume-front-left">
+      <div class="gyosun-logo-simbol">
+        <img src="./assets/img/gyosun_logo_simbol.svg">
+      </div>
+    </div>
+  </div>
+  <div class="resume-img-col-xs visible-xs-block">
+    <div class="full-screen resume-front-right">
+      <div class="gyosun-logo-text">
+        <img src="./assets/img/gyosun_logo_text.svg">
+      </div>
+    </div>
+  </div>
+  {{#items}}
+  <div id="{{key}}" class="resume-desc-col">
+    <div class="resume-decs-date">
+      <h1>{{period}}</h1>
+    </div>
+    <div class="resume-decs-section-title section-client"> 
+      <h6>comapny or client</h6>
+    </div>
+    <div class="resume-decs-client section-client">
+      <h2>{{client}}</h2>
+    </div>
+    <div class="resume-decs-section-title section-responsi">
+      <h6>responsibility</h6>
+    </div>
+    <div class="resume-decs-responsi section-responsi">
+      {{responsibility}}
+    </div>
+    <div class="resume-decs-section-title section-related">
+      <h6>related brands, websites or products</h6>
+    </div>
+    <div class="resume-decs-related section-related">
+      {{related}}
+    </div>
+    <div class="resume-decs-article article-title">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="resume-decs-article article-content">
+      {{{article}}}
+    </div>
+  </div>
+  <div class="resume-img-col-xs visible-xs-block">
+    <div class="full-screen cover-bg" style="background-image: url('../assets/img/resume/{{img}}');">
+    </div>
+  </div>
+  {{/items}}
+  <div id="anchor-100" class="resume-desc-col end">
+    <div>
+      Gyosun Jung
+    </div>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-6 fixed-img hidden-xs">
+  <div class="resume-img-col">
+    <div class="full-screen resume-front-right">
+      <div class="gyosun-logo-text">
+        <img src="./assets/img/gyosun_logo_text.svg">
+      </div>
+    </div>
+  </div>
+  {{#items}}
+  <div class="resume-img-col">
+    <div class="full-screen cover-bg" style="background-image: url('../assets/img/resume/{{img}}');">
+    </div>
+  </div>
+  {{/items}}
+</div>
+
+<script>
+  YeSeul.entree.resumes.view = (function () {
+    var gyosunLogoSimbol = new Walkway({
+      selector: '#gyosunLogoSimbol',
+      duration: '3000',
+      easing: function (t) {
+        return t * t;
+      }
+    });
+    var gyosunLogoText = new Walkway({
+      selector: '#gyosunLogoText',
+      duration: '3000',
+      easing: function (t) {
+        return t * t;
+      }
+    });
+
+    $(document).ready(function () {
+      if ($(gyosunLogoSimbol.selector).length != 0 && $(gyosunLogoText.selector).length != 0) {
+        var startAfter = 1000;
+        setTimeout(function () {
+          gyosunLogoText.draw();
+        }, startAfter );
+        setTimeout(function () {
+          gyosunLogoSimbol.draw();
+        }, startAfter + 2000 );
+      } else {
+        console.error ('The target does not exist.')
+      }
+
+      if (window.innerWidth > 768) {
+        $(function () {
+          var anchors = $('.resume-desc-col'),
+            winH = window.innerHeight,
+            _scrollTop = $(this).scrollTop(),
+            i, 
+            k,
+            anchorArr = [],
+            anchorPointArr = [];
+
+          for(i=0; i < anchors.length; i++){
+            anchorArr.push($(anchors[i]).attr('id'));
+            anchorPointArr.push($(anchors[i]).offset().top - (winH * 0.9))
+          }
+          console.log(anchorPointArr)
+          $(document).scroll(function () {
+            var _scrollTop = $(this).scrollTop()
+            for(k=1; k <= anchorPointArr.length; k++){
+              if ( _scrollTop >= anchorPointArr[k-1] && _scrollTop < anchorPointArr[k]) {
+                var eachWinH = winH * (k - 1);
+                $('.resume-img-col').css({
+                  'transform': 'translateY(-' + eachWinH + 'px)', 
+                  '-webkit-transform': 'translateY(-' + eachWinH + 'px)',
+                  '-moz-transform': 'translateY(-' + eachWinH + 'px)',
+                  '-ms-transform': 'translateY(-' + eachWinH + 'px)',
+                  '-o-transform': 'translateY(-' + eachWinH + 'px)',
+                })
+              }
+            }
+          });
+        }());
+      }
+    });
+  }());
+</script>

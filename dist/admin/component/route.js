@@ -43,6 +43,19 @@ YeSeul.menuAdmin.changeRoute = function(param) {
     case '#dashboard/':
       YeSeul.entree.dashboard.ctrl(this.route.dashboard);
       break;
+    case '#resume/':
+      YeSeul.entree.resumes.ctrl(this.route.resumes);
+      break;
+    case '#resume/edit/' + param.slice('#resume/edit/'.length):
+      var key = param.slice('#resume/edit/?id='.length);
+      YeSeul.entree.resume.ctrl(this.route.resumeEdit, key);
+      break;
+    case '#resume/create/':
+      YeSeul.entree.resume.ctrl(this.route.resumeCreate);
+      break;
+    case '#resume/trash/':
+      YeSeul.entree.resumes.ctrl(this.route.resumesTrash);
+      break;
     case '#blog/':
       YeSeul.entree.blogs.ctrl(this.route.blogs);
       break;
@@ -54,7 +67,7 @@ YeSeul.menuAdmin.changeRoute = function(param) {
       YeSeul.entree.blog.ctrl(this.route.blogCreate);
       break;
     case '#blog/trash/':
-      YeSeul.entree.blogs.ctrl(this.route.blogTrash);
+      YeSeul.entree.blogs.ctrl(this.route.blogsTrash);
       break;
     default:
       YeSeul.entree.auth.ctrl(this.route.login);
@@ -74,6 +87,30 @@ YeSeul.menuAdmin.route = {
     renderTarget: '#renderedBody',
     onNav: true
   },
+    'resumes': { 
+    thisName: 'Resumes',
+    renderTemplate: './component/resume/templates/list.mst',
+    renderTarget: '#renderedBody',
+    onNav: true
+  },
+  'resumeEdit': { 
+    thisName: 'Edit Rresume',
+    renderTemplate: './component/resume/templates/detail.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
+  'resumeCreate': { 
+    thisName: 'Create Resume',
+    renderTemplate: './component/resume/templates/detail.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
+  'resumesTrash': { 
+    thisName: 'Deleted Resumes',
+    renderTemplate: './component/resume/templates/list.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
   'blogs': { 
     thisName: 'Blogs',
     renderTemplate: './component/blog/templates/list.mst',
@@ -92,7 +129,7 @@ YeSeul.menuAdmin.route = {
     renderTarget: '#renderedBody',
     onNav: false
   },
-  'blogTrash': { 
+  'blogsTrash': { 
     thisName: 'Deleted Blogs',
     renderTemplate: './component/blog/templates/list.mst',
     renderTarget: '#renderedBody',
