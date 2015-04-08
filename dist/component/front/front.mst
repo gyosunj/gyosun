@@ -1,4 +1,4 @@
-<div class="gyosun-logo">
+<!-- <div class="gyosun-logo">
   <div class="gyosun-logo-wrapper">
     <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5 gyosun-logo-simbol">
       <svg id="gyosunLogoSimbol" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1152 720" xml:space="preserve">
@@ -474,7 +474,51 @@
       </svg>
     </div>
   </div>
+</div> -->
+
+<div class="col-xs-12 col-sm-5 col-sm-offset-1">
+  <div class="resume-desc-col">
+    <div class="resume-decs-date">
+      <h1>10 / 2013 ~ Current</h1>
+    </div>
+    <div class="resume-decs-section-title section-client"> 
+      <h6>comapny or client</h6>
+    </div>
+    <div class="resume-decs-client section-client">
+      <h2>Perr&amp;Knight</h2>
+    </div>
+    <div class="resume-decs-section-title section-responsi">
+      <h6>responsibility</h6>
+    </div>
+    <div class="resume-decs-responsi section-responsi">
+      Brand Identity, UI/UX Design, FrontEnd Development
+    </div>
+    <div class="resume-decs-section-title section-related">
+      <h6>related brands, websites or products</h6>
+    </div>
+    <div class="resume-decs-related section-related">
+      perrknight.com, ratefilings.com, statefilings.com
+    </div>
+    <div class="resume-decs-article article-title">
+      <h4>Cras id dui. Duis lobortis massa.</h4>
+    </div>
+    <div class="resume-decs-article article-content">
+      <p>Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Sed libero. Suspendisse potenti.</p>
+      <p>Phasellus viverra nulla ut metus varius laoreet. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Curabitur vestibulum aliquam leo. Cras id dui. Duis lobortis massa imperdiet quam.</p>
+      <p>Monotonectally deliver highly efficient applications and standards compliant interfaces. Compellingly fashion cooperative solutions and an expanded array of best practices. Intrinsicly whiteboard interoperable quality vectors through superior scenarios. Holisticly reintermediate high standards in strategic theme areas vis-a-vis sticky niche markets. Rapidiously administrate global metrics vis-a-vis high-quality platforms.</p>
+      <p>Proactively myocardinate global systems after alternative alignments. Rapidiously provide access to reliable leadership skills whereas maintainable paradigms. Proactively recaptiualize frictionless sources rather than robust quality vectors. Authoritatively synthesize distributed alignments whereas high-quality action items. Quickly architect parallel internal or "organic" sources for superior services.</p>
+      <p>Synergistically evisculate frictionless meta-services and market-driven web services. Synergistically whiteboard dynamic processes before viral technology. Objectively evisculate process-centric expertise after cross-media.</p>
+    </div>
+  </div>
 </div>
+<div class="col-xs-12 col-sm-6">
+  <div class="resume-img-col">
+    <div class="full-screen cover-bg resume-img-01">
+    </div>
+  </div>
+</div>
+
+
 
 <script>
   YeSeul.entree.front.view = (function () {
