@@ -169,6 +169,24 @@ svg
     stroke $theme-color-primary
     stroke-width 2 * $px
     
+.visible-xs-block
+  display none !important
+
+.full-screen
+  height 100vh
+  
+.cover-bg
+  background-repeat no-repeat
+  background-position center center
+  background-size cover
+
+@media (max-width: 768px)   
+  .hidden-xs
+    display none !important
+    
+  .visible-xs-block 
+    display block !important
+    
 
 /* == Sidebar Nav Animation == */
 .application 
@@ -190,26 +208,12 @@ navAni-nav-innerShadow()
 
 .rendered-body, .show-nav-btn
   background-color $theme-bg-color
-  // transF(translateX(0))
-  // transProp(transform)
-  // transDura($default-tran-speed)
   left 0px
   tranS(left $default-tran-speed)
 
-.show-nav .rendered-body, .show-nav .show-nav-btn
-  // transF(translateX($navAni-main-transX))
-  // transProp(transform)
-  // transDura($default-tran-speed)
+.collapse .rendered-body, .collapse .show-nav-btn
   left $navAni-main-transX
   tranS(left $default-tran-speed)
-  
-.fixed-img-show-nav
-  right 0px
-  tranS(right $default-tran-speed)
-  
-.show-nav .fixed-img-show-nav
-  right $navAni-main-transX * -1
-  tranS(right $default-tran-speed)
 
 .rendered-nav
   position fixed
@@ -224,14 +228,14 @@ navAni-nav-innerShadow()
   transF(translateX($navAni-main-transX * -1))
   tranS(transform $default-tran-speed 0s)
   
-.show-nav .rendered-nav
+.collapse .rendered-nav
   overfScrol(touch)
   transF(translateX(0))
   tranS(transform $default-tran-speed 0s)
 
 @media (max-width: 768px)
   //use translateX
-  .show-nav .rendered-body, .show-nav .show-nav-btn
+  .collapse .rendered-body, .collapse .show-nav-btn
     left $navAni-main-transX-sm
 
   .rendered-nav
@@ -280,7 +284,7 @@ line(a, b)
     transfOrig(50% 50%)
     tranS(top .3s .6s ease, transform .3s ease)
     
-.lines-button.to-x.action .lines
+.collapse .lines-button.to-x .lines
     tranS(background .3s 0s ease)  
     background transparent
     &:before, &:after
@@ -305,7 +309,7 @@ line(a, b)
     &:after  
       top -($default-button-size/8)
   
-  .lines-button.to-x.action .lines
+  .collapse .lines-button.to-x .lines
     &:before, &:after
       width inherit
 
@@ -338,10 +342,21 @@ line(a, b)
 .fixed-img
   position fixed
   right 0
+  tranS(right $default-tran-speed)
 
-@media (max-width: 768px)
-  .fixed-img
-    position static
+.collapse .fixed-img
+  right $navAni-main-transX * -1
+  tranS(right $default-tran-speed)
+    
+.resume-img-col
+  transF(translateY(0))
+  tranS(transform $default-tran-speed ease 0s)
+    
+.resume-desc-col
+  margin-bottom $default-margin * 7.5
+
+.resume-desc-col.end
+  margin-bottom 0
 
 .resume-decs-date
   h1
@@ -381,19 +396,21 @@ line(a, b)
   p
     margin-top $default-margin * .1
 
-
-
-.full-screen
-  height 100vh
+@media (max-width: 768px)
+  .fixed-img
+    position static
   
-.cover-bg
-  background-repeat no-repeat
-  background-position center center
-  background-size cover
-
-.resume-img-01
-  background-image url("../img/resume/pk01.jpg")
-
+  .resume-desc-col
+    margin-bottom $default-margin * 0.5 !important
+    
+  .resume-img-col-xs
+    margin-bottom $default-margin * 3 !important
+  
+  .resume-decs-section-title.section-client
+    margin-top $default-margin !important
+  
+  .resume-decs-article.article-title
+    margin-top $default-margin * 0.5 !important
 
 /* == .works == */
 
