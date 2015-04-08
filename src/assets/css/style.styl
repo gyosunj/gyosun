@@ -190,14 +190,26 @@ navAni-nav-innerShadow()
 
 .rendered-body, .show-nav-btn
   background-color $theme-bg-color
-  transF(translateX(0))
-  transProp(transform)
-  transDura($default-tran-speed)
+  // transF(translateX(0))
+  // transProp(transform)
+  // transDura($default-tran-speed)
+  left 0px
+  tranS(left $default-tran-speed)
 
 .show-nav .rendered-body, .show-nav .show-nav-btn
-  transF(translateX($navAni-main-transX))
-  transProp(transform)
-  transDura($default-tran-speed)
+  // transF(translateX($navAni-main-transX))
+  // transProp(transform)
+  // transDura($default-tran-speed)
+  left $navAni-main-transX
+  tranS(left $default-tran-speed)
+  
+.fixed-img-show-nav
+  right 0px
+  tranS(right $default-tran-speed)
+  
+.show-nav .fixed-img-show-nav
+  right $navAni-main-transX * -1
+  tranS(right $default-tran-speed)
 
 .rendered-nav
   position fixed
@@ -218,8 +230,9 @@ navAni-nav-innerShadow()
   tranS(transform $default-tran-speed 0s)
 
 @media (max-width: 768px)
+  //use translateX
   .show-nav .rendered-body, .show-nav .show-nav-btn
-    transF(translateX($navAni-main-transX-sm))
+    left $navAni-main-transX-sm
 
   .rendered-nav
     width $navAni-main-transX-sm
@@ -321,6 +334,14 @@ line(a, b)
 .gyosun-logo
   height 100vh
   text-align center
+  
+.fixed-img
+  position fixed
+  right 0
+
+@media (max-width: 768px)
+  .fixed-img
+    position static
 
 .resume-decs-date
   h1
@@ -332,8 +353,7 @@ line(a, b)
 .resume-decs-section-title
   h6
     font-style italic
-    font-weight 400
-    
+    font-weight 400 
 
 .resume-decs-section-title.section-client
   margin-top $default-margin * 2.5
