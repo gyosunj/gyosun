@@ -77,8 +77,8 @@ overfScrol(str)
 /* == Variables == */
 $theme-font-color = #7B7B7B
 $theme-font-size = 16px
-$theme-font-family-sans = "Lato", "Helvetica Neue", Helvetica, sans-serif;
-$theme-font-family-serif = "Merriweather", Georgia, Times, "Times New Roman", serif;
+$theme-font-family-sans = "Lato", "Helvetica Neue", Helvetica, sans-serif
+$theme-font-family-serif = "Merriweather", Georgia, Times, "Times New Roman", serif
 $theme-line-height = 1.6em
 $theme-color-primary = #199BC9
 $theme-color-secondary = #1FAB9C
@@ -123,12 +123,12 @@ p
   line-height $theme-line-height
   
 a
-  color: $theme-color-primary
+  color $theme-color-primary
   &:link,
   &:hover,
   &:visited,
   &:active
-    color: $theme-color-primary
+    color $theme-color-primary
   
 h1, h2, h3, h4, h5, h6
   line-height $theme-line-height * 0.7
@@ -159,17 +159,18 @@ h6
 
 svg 
   path
-    stroke $theme-color-primary
+    stroke #fff
     stroke-width 2 * $px
     fill transparent
   line
-    stroke $theme-color-primary
+    stroke #fff
     stroke-width 2 * $px
   polyline
-    stroke $theme-color-primary
+    stroke #fff
     stroke-width 2 * $px
     
-.visible-xs-block
+.visible-xs-block,
+.visible-sm-block
   display none !important
 
 .full-screen
@@ -180,13 +181,19 @@ svg
   background-position center center
   background-size cover
 
+@media (min-width: 768px) and (max-width: 991px)
+  .hidden-sm
+    display none !important
+    
+  .visible-sm-block 
+    display block !important
+
 @media (max-width: 768px)   
   .hidden-xs
     display none !important
     
   .visible-xs-block 
     display block !important
-    
 
 /* == Sidebar Nav Animation == */
 .application 
@@ -332,6 +339,9 @@ line(a, b)
       text-decoration none
   hr
     margin-top $default-margin
+  .gyosun-logo-simbol
+    margin-top $default-margin * 0.5
+    width 30%     
 
 .nav-item-sns-icons
   margin-top $default-margin * 0.3
@@ -343,13 +353,58 @@ line(a, b)
     
 
 /* == .resume == */
+.resume-left
+  padding-left 0
+  padding-right 0
+
+.resume-right
+  padding-left 0
+
+.resume-front-left
+  position relative
+
 .resume-front-right
   background $theme-color-primary
-  
-.gyosun-logo-text
+  .gyosun-logo
+    position relative
+    top: 20%
+    .gyosun-logo-simbol
+      width 50%
+      margin 0 auto
+    .gyosun-logo-text
+      width 70%
+      margin 0 auto
+      
+.resume-front-logo
+  text-align center
+  position absolute
+  top 25%
+
+.resume-front-welcome
+  text-align center
+  position absolute
+  top 80%
+  p
+    color white
+    font-size 12 * $px
+    font-family $theme-font-family-serif
+  .reckless
+    background #d33565
+
+.resume-front-welcome.on-hveiw
   position relative
-  padding $default-margin * 0.5
-  top 75%
+  top 45%
+    
+
+.resume-front-scroll-icon
+  text-align center
+  position absolute
+  bottom 10%
+  p
+    color white
+    font-size 11 * $px
+    font-family $theme-font-family-serif
+    margin-bottom $default-margin * 0.1
   
 .fixed-img
   position fixed
@@ -408,10 +463,24 @@ line(a, b)
   p
     margin-top $default-margin * .1
 
-@media (max-width: 768px)
-  .fixed-img
-    position static
+.img-on-hveiw
+  min-height 500px
+
+
+@media (min-width: 768px) and (max-width: 991px) 
+  .resume-desc-col
+    margin-bottom $default-margin * 0.5 !important
+    
+  .resume-img-col-xs
+    margin-bottom $default-margin * 3 !important
   
+  .resume-decs-section-title.section-client
+    margin-top $default-margin !important
+  
+  .resume-decs-article.article-title
+    margin-top $default-margin * 0.5 !important  
+
+@media (max-width: 768px)
   .resume-desc-col
     margin-bottom $default-margin * 0.5 !important
     
