@@ -1,4 +1,4 @@
-<div class="panel panel-default blog-list">
+<div class="panel panel-default data-list">
   <div class="panel-heading">Blogs</div>
   <div class="panel-body text-right">
     <a class="btn btn-primary" href="./#blog/create/">Create New</a>

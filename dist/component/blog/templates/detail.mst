@@ -13,11 +13,13 @@
       <div class="blog-item blog-item-share">
       	<div class="page-title text-center">
         	<h5>Share this</h5>
+          <!--     TODO: Share This Fn -->
       	</div>
       </div>
       <div class="blog-item blog-item-tags">
       	<div class="page-title well well-sm">
         	<h5>Tags</h5>
+          <!--     TODO: Tag Fn -->
         	<div class="well">
 						<a>Sed</a>, <a>consequat</a>, <a>leo</a>, <a>eget</a>, <a>bibendum</a>, <a>sodales</a>, <a>augue</a>, <a>velit</a>, <a>cursus</a>, <a>nunc</a>, <a>quis</a>, <a>gravida</a>, <a>magna</a>, <a>libero</a>, <a>Morbi</a>, <a>Sed</a>, <a>cursus</a>, <a>turpis</a>, <a>vitae tortor</a>, <a>Morbi mollis</a>, <a>tellus</a>, <a>sapien</a>, <a>Praesent</a>, <a>sem eget</a>, <a>est egestas</a>, <a>volutpat</a>
         	</div>

@@ -94,7 +94,7 @@ YeSeul.menuAdmin.route = {
     onNav: true
   },
   'resumeEdit': { 
-    thisName: 'Edit Rresume',
+    thisName: 'Edit Resume',
     renderTemplate: './component/resume/templates/detail.mst',
     renderTarget: '#renderedBody',
     onNav: false

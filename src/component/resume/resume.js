@@ -8,7 +8,8 @@ YeSeul.entree.resumes.ctrl = function (route) {
   YeSeul.entree.resumes.firebase.dbName = 'resumes';
   YeSeul.entree.resumes.firebase.loadData(trash) // num: 1 = deleted item or 0 = not deleted item
     .then(function ( arr ) {
-      // arr.sort(YeSeul.ingredient.orderBy('desc', 'updatedat', 'fDateTime'));
+      arr.reverse();
+      // TODO: arr.sort => custom order fn
       YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
     })
     .done(function () { })

@@ -6,6 +6,7 @@
         <span class="h5">Recent posts</span>
         <span class="navbar-right">
           <a class="label label-success">Categories</a> <a class="label label-success">Tags</a>
+          <!--     TODO: Category and Tag Fn -->
         </span>
       </div>
       {{#items}}
