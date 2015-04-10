@@ -48,12 +48,18 @@ YeSeul.menuGyosun.changeRoute = function(param) {
     case '/':
       YeSeul.entree.resumes.ctrl(this.route.resumes);
       break;
+    case '#work':
+      YeSeul.entree.works.ctrl(this.route.works);
+      break;
     case '#blog':
       YeSeul.entree.blogs.ctrl(this.route.blogs);
       break;
     case '#blog' + param.slice('#blog'.length):
       var key = param.slice('#blog/?id='.length);
       YeSeul.entree.blog.ctrl(this.route.blog, key);
+      break;
+    case '#contact':
+      YeSeul.entree.contact.ctrl(this.route.contact);
       break;
     default:
       YeSeul.entree.generic.Ctrl(this.route.fourofour); // TODO: need to create a generic ctrl
@@ -71,13 +77,23 @@ YeSeul.menuGyosun.route = {
     renderTarget: '#renderedBody',
     onNav: false
   },
+  'works': { thisName: 'Works',
+    renderTemplate: '../component/work/work.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
   'blogs': { thisName: 'Blogs',
-    renderTemplate: '../component/blog/templates/list.mst',
+    renderTemplate: '../component/blog/list.mst',
     renderTarget: '#renderedBody',
     onNav: true
   },
   'blog': { thisName: 'Blog',
-    renderTemplate: '../component/blog/templates/detail.mst',
+    renderTemplate: '../component/blog/detail.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
+  'contact': { thisName: 'Contact',
+    renderTemplate: '../component/contact/contact.mst',
     renderTarget: '#renderedBody',
     onNav: false
   },

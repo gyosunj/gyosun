@@ -133,4 +133,10 @@ YeSeul.entree.generic.Ctrl = function (route) {
   YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
 }
 
-
+YeSeul.wine.index = new YeSeul.wine();
+YeSeul.wine.index = function () {
+  $('#showNavBtn').on('click', function(event){
+    event.preventDefault();
+    $('#application').toggleClass('collapse');
+  })
+}

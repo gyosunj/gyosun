@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gyosun.com</title>
-
+    <meta name="description" content="This is Gyosun's portfolio website.">
+    <meta name="keywords" content="Design, FrontEnd, portfolio, firebase, javascript">
+    <meta name="author" content="Gyosun Jung">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic|Merriweather:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../vendors/css/bootstrap_grid.min.css" rel="stylesheet">
     <link href="../assets/css/style.css" rel="stylesheet">
@@ -13,20 +15,21 @@
   <body>
     <div id="application" class="application">
       <div class="show-nav-btn"><button type="button" id="showNavBtn" class="lines-button to-x"><span class="lines"></span></button></div>
-      <div id="renderedBody" class="rendered-body clearfix"></div>
+      <div id="renderedBody" class="rendered-body clearfix col-xs-12">
+        <div id="loadingIcon" class="loading transparent-bg">
+          <img src="../assets/img/loading_icon.gif" class="loading-icon"/>
+        </div>
+      </div>
       <div id="renderedNav" class="rendered-nav"></div>
     </div>
-  </body>
-  <script type="text/javascript" src="../vendors/js/firebase.min.js"></script>
-  <script type="text/javascript" src="../vendors/js/jquery-1.11.2.min.js"></script>
-  <script type="text/javascript" src="../vendors/js/mustache.min.js"></script>
-  <script type="text/javascript" src="../vendors/js/walkway.min.js"></script>
-  <script type="text/javascript" src="../assets/js/gyosun.min.js"></script>
-  <script type="text/javascript">
-      $('#showNavBtn').on('click', function(event){
-        event.preventDefault();
-        $('#application').toggleClass('collapse');
-      })
+    <script type="text/javascript" src="../vendors/js/firebase.min.js"></script>
+    <script type="text/javascript" src="../vendors/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../vendors/js/mustache.min.js"></script>
+    <script type="text/javascript" src="../vendors/js/walkway.min.js"></script>
+    <script type="text/javascript" src="../assets/js/gyosun.min.js"></script>
+    <script type="text/javascript">
+      YeSeul.wine.index();
     </script>
+  </body>
 </html>
 

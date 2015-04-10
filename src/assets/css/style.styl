@@ -173,6 +173,12 @@ svg
 .visible-sm-block
   display none !important
 
+.hero-unit
+  background-repeat no-repeat
+  background-position center center
+  background-size cover
+  height: 500px
+
 .full-screen
   height 100vh
   
@@ -180,6 +186,13 @@ svg
   background-repeat no-repeat
   background-position center center
   background-size cover
+
+.loading 
+  height 100vh
+  text-align center
+  img
+    position relative
+    top 10%
 
 @media (min-width: 768px) and (max-width: 991px)
   .hidden-sm
@@ -350,7 +363,10 @@ line(a, b)
     img
       width 35 * $px
       height 35 * $px    
-    
+
+/* == 404 == */
+.fourofour-hero-unit
+  background-image url("../img/404.jpg")
 
 /* == .resume == */
 .resume-left
@@ -498,11 +514,7 @@ line(a, b)
 
 
 /* == .blog == */
-.hero-unit
-  background-repeat no-repeat
-  background-position center center
-  background-size cover
-  height: 500px
+
   
 .blogs-hero-unit
   background-image url("../img/blogs-bg.jpg")

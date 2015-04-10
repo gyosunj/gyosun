@@ -371,9 +371,15 @@ YeSeul.entree.generic.Ctrl = function (route) {
   YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
 }
 
-
-
+YeSeul.wine.index = new YeSeul.wine();
+YeSeul.wine.index = function () {
+  $('#showNavBtn').on('click', function(event){
+    event.preventDefault();
+    $('#application').toggleClass('collapse');
+  })
+}
 'use strict';
+// List view controller
 YeSeul.entree.blogs = new YeSeul.entree();
 YeSeul.entree.blogs.ctrl = function (route) {
   var thisName = route.thisName,
@@ -410,103 +416,6 @@ YeSeul.entree.blog.ctrl = function (route, key) {
     });
 };
 
-// YeSeul.appetizerBlog = new YeSeul.appetizer;
-// // Adding more classes
-// YeSeul.appetizerBlog.PostClass = (function() {
-//   var cached_function = YeSeul.appetizerBlog.PostClass;
-//   return function() {
-//     cached_function.apply(this, arguments);
-
-//     var _category;
-//     Object.defineProperty(this, 'category', {
-//       get: function () { return _category; },
-//       set: function (value) { _category = value; },
-//       enumerable: true
-//     });
-
-//     var _tag;
-//     Object.defineProperty(this, 'tag', {
-//       get: function () { return _tag; },
-//       set: function (value) { _tag = value; },
-//       enumerable: true
-//     });
-//   }    
-// }());
-// // Repository
-// YeSeul.appetizerBlog.repo = function (val) {
-//   var _repo = new YeSeul.appetizerBlog.PostClass();
-//   var checking = function (val) {var _val; val? _val = val: _val = ''; return _val;}
-//   _repo.id = checking(val.id);
-//   _repo.key = checking(val.key);
-//   _repo.title = checking(val.title);
-//   _repo.author = checking(val.author);
-//   _repo.excerpt = checking(val.excerpt);
-//   _repo.content = checking(val.content);
-//   _repo.createdby = checking(val.createdby);
-//   _repo.updatedby = checking(val.updatedby);
-//   _repo.createdat = checking(val.createdat);
-//   _repo.updatedat = checking(val.updatedat);
-//   _repo.category = checking(val.category);
-//   _repo.tag = checking(val.tag);
-//   _repo.trash = checking(val.trash);
-//   return _repo
-// }
-// // List view controller
-// YeSeul.wine.blogs = new YeSeul.wine();
-// YeSeul.wine.blogs = function (route) {
-//   var profile = route;
-//   var template = profile.renderTemplate,
-//     target = profile.renderTarget;
-
-//   var items = new YeSeul.entree();
-//   var ref = items.ref().child('blogs');
-
-//   var loadBlogs = (function () {
-//     ref.once('value', function(snapshot) {
-//       var dataObj = snapshot.val();
-//       var arr = [];
-//       $.each(dataObj, function (key, val) {
-//         val.key = key;
-//         var singleObj = val;
-//         var result = YeSeul.appetizerBlog.repo(singleObj);
-//         arr.push(result);
-//       })
-
-//       arr.sort(YeSeul.ingredient.orderBy('desc', 'updatedat', 'fDateTime'));
-
-//       var finalData = {items: arr} // 'items' must match with 'Sections Render Block' name {{#items}} ... {{/items}}
-//       items.render(template, finalData, target)
-//     }, function (errorObject) {
-//       console.log("The read failed: " + errorObject.code);
-//     });
-//   }());
-// }
-// // Detail view controller
-// YeSeul.wine.blog = new YeSeul.wine();
-// YeSeul.wine.blog = function (route, key) {
-//   var profile = route;
-//   var template = profile.renderTemplate,
-//     target = profile.renderTarget;
-
-//   var items = new YeSeul.entree();
-//   var ref = items.ref().child('blogs');
-
-//   var loadBlog = (function () {
-//     ref.once('value', function(snapshot) {
-//       var val = snapshot.child(key).val();
-//       if (!val) {
-//         window.location = "/#404"
-//         return false;
-//       }
-//       val.key = key;
-//       var singleObj = val;
-//       var finalData = YeSeul.appetizerBlog.repo(singleObj);
-//       items.render(template, finalData, target)
-//     }, function (errorObject) {
-//       console.log("The read failed: " + errorObject.code);
-//     });
-//   }());
-// }
 
 
 
@@ -530,6 +439,32 @@ YeSeul.entree.blog.ctrl = function (route, key) {
 
 
 'use strict';
+YeSeul.entree.contact = new YeSeul.entree();
+YeSeul.entree.contact.ctrl = function (route) {
+  var thisName = route.thisName,
+    trash = 0;
+  this.pageTitle = thisName;
+
+  // YeSeul.entree.contact.firebase.dbName = 'contact';
+  // YeSeul.entree.contact.firebase.loadData(trash) // num: 1 = deleted item or 0 = not deleted item
+  //   .then(function ( arr ) {
+  //     arr.reverse();
+  //     // TODO: arr.sort => custom order fn
+  //     YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
+  //   })
+  //   .done(function () { })
+  //   .fail(function () {
+  //     console.error (this + ' :failed.');
+  //   });
+  var arr = [];
+  YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
+};
+
+YeSeul.wine.contact = new YeSeul.wine();
+YeSeul.wine.contact = function () {
+
+};
+'use strict';
 YeSeul.entree.resumes = new YeSeul.entree();
 YeSeul.entree.resumes.ctrl = function (route) {
   var thisName = route.thisName,
@@ -547,6 +482,59 @@ YeSeul.entree.resumes.ctrl = function (route) {
     .fail(function () {
       console.error (this + ' :failed.');
     });
+};
+
+YeSeul.wine.resumes = new YeSeul.wine();
+YeSeul.wine.resumes = function () {
+  var gyosunLogoSimbol = new Walkway({
+    selector: '#gyosunLogoSimbol',
+    duration: '7000',
+    easing: function (t) {
+      return t * t;
+    }
+  });
+
+  $(document).ready(function () {
+    if ($(gyosunLogoSimbol.selector).length != 0) {
+      var startAfter = 500;
+      setTimeout(function () {
+        gyosunLogoSimbol.draw();
+      }, startAfter );
+    } else {
+      console.error ('The target does not exist.')
+    }
+
+    if (window.innerWidth > 768) {
+      $(function () {
+        var anchors = $('.resume-desc-col'),
+          winH = window.innerHeight,
+          _scrollTop = $(this).scrollTop(),
+          i, 
+          k,
+          anchorArr = [],
+          anchorPointArr = [];
+        for(i=0; i < anchors.length; i++){
+          anchorArr.push($(anchors[i]).attr('id'));
+          anchorPointArr.push($(anchors[i]).offset().top - (winH * 0.9))
+        }
+        $(document).scroll(function () {
+          var _scrollTop = $(this).scrollTop()
+          for(k=1; k <= anchorPointArr.length; k++){
+            if ( _scrollTop >= anchorPointArr[k-1] && _scrollTop < anchorPointArr[k]) {
+              var eachWinH = winH * (k - 1);
+              $('.resume-img-col').css({
+                'transform': 'translateY(-' + eachWinH + 'px)', 
+                '-webkit-transform': 'translateY(-' + eachWinH + 'px)',
+                '-moz-transform': 'translateY(-' + eachWinH + 'px)',
+                '-ms-transform': 'translateY(-' + eachWinH + 'px)',
+                '-o-transform': 'translateY(-' + eachWinH + 'px)',
+              })
+            }
+          }
+        });
+      }());
+    }
+  });
 };
 'use strict';
 YeSeul.menuGyosun = new YeSeul.menu();
@@ -598,12 +586,18 @@ YeSeul.menuGyosun.changeRoute = function(param) {
     case '/':
       YeSeul.entree.resumes.ctrl(this.route.resumes);
       break;
+    case '#work':
+      YeSeul.entree.works.ctrl(this.route.works);
+      break;
     case '#blog':
       YeSeul.entree.blogs.ctrl(this.route.blogs);
       break;
     case '#blog' + param.slice('#blog'.length):
       var key = param.slice('#blog/?id='.length);
       YeSeul.entree.blog.ctrl(this.route.blog, key);
+      break;
+    case '#contact':
+      YeSeul.entree.contact.ctrl(this.route.contact);
       break;
     default:
       YeSeul.entree.generic.Ctrl(this.route.fourofour); // TODO: need to create a generic ctrl
@@ -621,13 +615,23 @@ YeSeul.menuGyosun.route = {
     renderTarget: '#renderedBody',
     onNav: false
   },
+  'works': { thisName: 'Works',
+    renderTemplate: '../component/work/work.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
   'blogs': { thisName: 'Blogs',
-    renderTemplate: '../component/blog/templates/list.mst',
+    renderTemplate: '../component/blog/list.mst',
     renderTarget: '#renderedBody',
     onNav: true
   },
   'blog': { thisName: 'Blog',
-    renderTemplate: '../component/blog/templates/detail.mst',
+    renderTemplate: '../component/blog/detail.mst',
+    renderTarget: '#renderedBody',
+    onNav: false
+  },
+  'contact': { thisName: 'Contact',
+    renderTemplate: '../component/contact/contact.mst',
     renderTarget: '#renderedBody',
     onNav: false
   },
@@ -635,3 +639,30 @@ YeSeul.menuGyosun.route = {
 
 YeSeul.menuGyosun.layout();
 YeSeul.menuGyosun.run();
+
+'use strict';
+YeSeul.entree.works = new YeSeul.entree();
+YeSeul.entree.works.ctrl = function (route) {
+  var thisName = route.thisName,
+    trash = 0;
+  this.pageTitle = thisName;
+
+  // YeSeul.entree.works.firebase.dbName = 'works';
+  // YeSeul.entree.works.firebase.loadData(trash) // num: 1 = deleted item or 0 = not deleted item
+  //   .then(function ( arr ) {
+  //     arr.reverse();
+  //     // TODO: arr.sort => custom order fn
+  //     YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
+  //   })
+  //   .done(function () { })
+  //   .fail(function () {
+  //     console.error (this + ' :failed.');
+  //   });
+  var arr = [];
+  YeSeul.dessert.mustache (route.renderTemplate, arr, route.renderTarget)
+};
+
+YeSeul.wine.works = new YeSeul.wine();
+YeSeul.wine.works = function () {
+
+};
