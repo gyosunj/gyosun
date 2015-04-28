@@ -75,13 +75,16 @@ overfScrol(str)
   
 
 /* == Variables == */
-$theme-font-color = #7B7B7B
+$theme-font-color = #777777
 $theme-font-size = 16px
 $theme-font-family-sans = "Lato", "Helvetica Neue", Helvetica, sans-serif
 $theme-font-family-serif = "Merriweather", Georgia, Times, "Times New Roman", serif
 $theme-line-height = 1.6em
-$theme-color-primary = #199BC9
-$theme-color-secondary = #1FAB9C
+$theme-color-primary = #03A9F4
+$theme-color-secondary = #00BCD4
+$theme-color-tertiary = #9C27B0
+$theme-color-ok = #4CAF50
+$theme-color-notok = #E61875
 $theme-bg-color = #F5F4F2
 
 $px = (1/$theme-font-size)rem
@@ -242,7 +245,7 @@ navAni-nav-innerShadow()
   top 0
   z-index 1
   width $navAni-main-transX
-  background-color $theme-color-secondary
+  background-color darken($theme-color-secondary, 20%)
   navAni-nav-innerShadow()
   overflow-y auto  
   transF(translateX($navAni-main-transX * -1))
@@ -264,6 +267,64 @@ navAni-nav-innerShadow()
 
 
 /* == button == */
+.btn
+  border 3px solid $theme-font-color
+  font-size inherit
+  color $theme-font-color
+  background none
+  cursor pointer
+  padding 1rem 4rem
+  display inline-block
+  text-transform uppercase
+  letter-spacing 0.1rem
+  font-weight 700
+  outline none
+  position relative
+  -webkit-transition all 0.3s
+  -moz-transition all 0.3s
+  transition all 0.3s
+  &:hover
+    color #fff
+    background #777777
+
+.btn-small
+  padding 0.5rem 2rem
+
+.btn-primary
+  color $theme-color-primary
+  border 3px solid $theme-color-primary
+  &:hover
+    color #fff
+    background $theme-color-primary
+    
+.btn-secondary
+  color $theme-color-secondary
+  border 3px solid $theme-color-secondary
+  &:hover
+    color #fff
+    background $theme-color-secondary
+
+.btn-tertiary
+  color $theme-color-tertiary
+  border 3px solid $theme-color-tertiary
+  &:hover
+    color #fff
+    background $theme-color-tertiary
+
+.btn-ok
+  color $theme-color-ok
+  border 3px solid $theme-color-ok
+  &:hover
+    color #fff
+    background $theme-color-ok
+    
+.btn-notok
+  color $theme-color-notok
+  border 3px solid $theme-color-notok
+  &:hover
+    color #fff
+    background $theme-color-notok
+
 .lines-button 
   display inline-block
   padding ($default-button-size/3) ($default-button-size/3) ($default-button-size/2) ($default-button-size/3)
@@ -405,13 +466,12 @@ line(a, b)
     font-size 12 * $px
     font-family $theme-font-family-serif
   .reckless
-    background #d33565
+    background $theme-color-notok
 
 .resume-front-welcome.on-hveiw
   position relative
   top 45%
     
-
 .resume-front-scroll-icon
   text-align center
   position absolute
@@ -478,6 +538,9 @@ line(a, b)
   margin-top $default-margin * .15
   p
     margin-top $default-margin * .1
+
+.resume-decs-button 
+  margin-top $default-margin * 1
 
 .img-on-hveiw
   min-height 500px

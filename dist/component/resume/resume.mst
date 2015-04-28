@@ -196,6 +196,9 @@
       <div class="resume-decs-article article-content">
         {{{article}}}
       </div>
+      <div class="resume-decs-button article-btn">
+        <button type="button" class="btn btn-primary">See detail</button>
+      </div>
     </div>
     <!-- Visible on only small devices -->
     <div class="resume-img-col-xs visible-xs-block visible-sm-block">
