@@ -12,7 +12,7 @@ YeSeul.dessert.mustache = function (path, arr, target) {
   		data = arr
   	};
     $.get(path, function(template) {
-    var rendered = Mustache.render(template, data);
+      var rendered = Mustache.render(template, data);
       $(target).html(rendered);
     });
   } else {
