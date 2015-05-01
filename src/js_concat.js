@@ -250,7 +250,7 @@ YeSeul.dessert.mustache = function (path, arr, target) {
   		data = arr
   	};
     $.get(path, function(template) {
-    var rendered = Mustache.render(template, data);
+      var rendered = Mustache.render(template, data);
       $(target).html(rendered);
     });
   } else {
@@ -534,6 +534,14 @@ YeSeul.wine.resumes = function () {
         });
       }());
     }
+
+    $('.resume-decs-button').each(function() {
+      var linkTags = $(this).find('a');
+      var links = linkTags.attr('href');
+      if (links.length === 0) {
+        linkTags.addClass('hide');
+      }
+    })
   });
 };
 'use strict';

@@ -172,6 +172,12 @@ svg
     stroke #fff
     stroke-width 2 * $px
     
+.hide
+  display none !important
+  
+.show
+  display initial !important
+    
 .visible-xs-block,
 .visible-sm-block
   display none !important
@@ -324,6 +330,13 @@ navAni-nav-innerShadow()
   &:hover
     color #fff
     background $theme-color-notok
+    
+.btn-disable
+  pointer-events none !important
+  cursor default !important
+  color #777777 !important 
+  a
+    color #777777 
 
 .lines-button 
   display inline-block
@@ -540,7 +553,7 @@ line(a, b)
     margin-top $default-margin * .1
 
 .resume-decs-button 
-  margin-top $default-margin * 1
+  margin-top $default-margin * .5
 
 .img-on-hveiw
   min-height 500px

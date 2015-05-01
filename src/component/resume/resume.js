@@ -68,5 +68,13 @@ YeSeul.wine.resumes = function () {
         });
       }());
     }
+
+    $('.resume-decs-button').each(function() {
+      var linkTags = $(this).find('a');
+      var links = linkTags.attr('href');
+      if (links.length === 0) {
+        linkTags.addClass('hide');
+      }
+    })
   });
 };

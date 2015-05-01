@@ -197,7 +197,7 @@
         {{{article}}}
       </div>
       <div class="resume-decs-button article-btn">
-        <button type="button" class="btn btn-primary">See detail</button>
+        <a type="button" href="{{link}}" target="_blank" class="btn btn-primary">See detail</a>
       </div>
     </div>
     <!-- Visible on only small devices -->
