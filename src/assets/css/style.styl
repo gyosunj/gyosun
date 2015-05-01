@@ -197,11 +197,18 @@ svg
   background-size cover
 
 .loading 
-  height 100vh
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background rgba(255, 255, 255, 0.9)
+  z-index 9999
+  overflow-y hidden
   text-align center
   img
     position relative
-    top 10%
+    top 30%
 
 @media (min-width: 768px) and (max-width: 991px)
   .hidden-sm
