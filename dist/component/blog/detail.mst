@@ -28,6 +28,9 @@
     </div>
   </div>
 </div>
-
-
+<script>
+  $(document).ready(function() {
+    prettyPrint();
+  });
+</script>
 
