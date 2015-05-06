@@ -1,4 +1,4 @@
-<div class="hero-unit blog-hero-unit"></div>
+<div class="hero-unit blog-hero-unit" style="background-image: url('http://drive.google.com/uc?export=view&id={{gDriveId}}');"></div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">

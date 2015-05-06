@@ -32,6 +32,15 @@
     </div>
   </div>
   <div class="form-group form-group-item clearfix">
+    <label for="inputGDriveId" class="col-md-12 col-lg-1">BG</label>
+
+    <div class="col-xs-11">
+      <input type="text" class="form-control" id="inputGDriveId" placeholder="Background Image: Google Drive Image File Id" value="{{gDriveId}}">
+      <span class="help-block">Google Drive Image File Id</span>
+    </div>
+
+  </div>
+  <div class="form-group form-group-item clearfix">
     <label for="inputContent" class="col-md-12 col-lg-1">Content</label>
     <div class="col-xs-11">
       <div id="inputContent" class="blog-textarea-content">{{{content}}}</div>
@@ -94,7 +103,8 @@
     var inputData = function () {
       return { 
         title: $('#inputTitle').val(), 
-        excerpt: $('#inputExcerpt').val(), 
+        excerpt: $('#inputExcerpt').val(),
+        gDriveId: $('#inputGDriveId').val(), 
         content: $('#inputContent').code(), 
         updatedat: YeSeul.ingredient.punchClock.now(),
         updatedby: YeSeul.restaurant.owner.password.email, 
@@ -111,6 +121,7 @@
       return { 
         title: $('#inputTitle').val(), 
         excerpt: $('#inputExcerpt').val(), 
+        gDriveId: $('#inputGDriveId').val(), 
         content: $('#inputContent').code(),
         createdat: YeSeul.ingredient.punchClock.now(),
         updatedat: YeSeul.ingredient.punchClock.now(),
