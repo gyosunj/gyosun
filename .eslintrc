@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "max-len": ["error", { "code": 200 }],
+    "require-jsdoc": ["error", {
+      "require": {
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+      }
+    }]
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "google"
+}

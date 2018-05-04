@@ -1,0 +1,40 @@
+{
+  "name": "robert-bresson",
+  "version": "0.1.0",
+  "description": "The simplest tasks are by no means the easiest. - Diary of a Country Priest (1951)",
+  "main": "server.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js",
+    "watch": "webpack --progress --watch",
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "lint:js": "eslint . --cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perfectacle/react-router-4.git"
+  },
+  "author": "Gyosun Jung",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-loader": "^2.0.0",
+    "lodash-es": "^4.17.10",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "file-stream-rotator": "^0.2.1",
+    "morgan": "^1.9.0"
+  }
+}
