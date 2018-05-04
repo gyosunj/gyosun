@@ -1,5 +1,6 @@
 const {resolve} = require('path');
-
+// const sources = require('./src');
+// console.log(sources);
 const ruleEslint = {
   test: /\.js$/,
   enforce: 'pre',
@@ -17,27 +18,29 @@ const ruleCss = {
   test: /\.css$/,
   use: [{loader: 'style-loader'}, {loader: 'css-loader'}],
 };
-const pluginEslint = new webpack.LoaderOptionsPlugin({
-  options: {
-    eslint: {
-      failOnWarning: false,
-      failOnError: true,
-      fix: false,
-    },
-  },
-});
-const pluginSourceMap = new webpack.SourceMapDevToolPlugin({
-  filename: '[file].map',
-});
+// const pluginEslint = new webpack.LoaderOptionsPlugin({
+//   options: {
+//     eslint: {
+//       failOnWarning: false,
+//       failOnError: true,
+//       fix: false,
+//     },
+//   },
+// });
+// const pluginSourceMap = new webpack.SourceMapDevToolPlugin({
+//   filename: '[file].map',
+// });
 
 module.exports = {
-  entry: './src/home/index.js',
+  entry: {
+    home: resolve(__dirname, 'src/home/index.js'),
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name]-bundle.js',
     path: resolve(__dirname, 'dist'),
   },
   module: {rules: [ruleEslint, ruleJavascript, ruleCss]},
-  plugins: [pluginEslint, pluginSourceMap],
+  // plugins: [pluginEslint, pluginSourceMap],
 };
 
 // module.exports = function(env) {

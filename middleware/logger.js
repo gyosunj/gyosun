@@ -3,7 +3,7 @@ const fs = require('fs');
 const morgan = require('morgan');
 const fileStreamRotator = require('file-stream-rotator');
 
-const APP_CONSTANT = require('../resource/').APP_CONSTANT;
+const {APP_CONSTANT} = require('../resource/');
 
 module.exports = (req, res, next) => {
   let logDirectory = path.join(process.cwd(), '/log');
