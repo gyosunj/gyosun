@@ -8,11 +8,10 @@
     "dev:node": "node server.js env=DEVELOPMENT",
     "dev:nodeDebug": "node --inspect-brk=9229 server.js env=DEVELOPMENT",
     "dev:webpack": "webpack --config webpack.dev.js",
-    "dev": "npm run dev:webpack | npm run dev:node",
-    "devDebug": "npm run dev:webpack | npm run dev:nodeDebug",
+    "dev": "npm run dev:node | npm run dev:webpack",
+    "devDebug": "npm run dev:nodeDebug | npm run dev:webpack",
     "lint:js": "eslint . --cache",
-    "build": "npm run lint:js && webpack --config webpack.prod.js",
-    "w": "webpack --profile --json > compilation-stats.json"
+    "build": "npm run lint:js && webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,7 @@
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
     "eslint-loader": "^2.0.0",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "lodash-es": "^4.17.10",
     "marko-loader": "^1.3.3",
@@ -41,11 +41,14 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chokidar": "^2.0.3",
     "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "file-stream-rotator": "^0.2.1",
+    "jquery": "^3.3.1",
     "marko": "^4.9.7",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "node-dir": "^0.1.17"
   }
 }
