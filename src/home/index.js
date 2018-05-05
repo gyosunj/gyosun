@@ -12,7 +12,7 @@ console.log(plus.two(1));
 // IE will fail
 const object1 = {
   a: 'somestring',
-  b: 42,
+  b: 43,
   c: false,
 };
 

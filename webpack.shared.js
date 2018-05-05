@@ -1,6 +1,7 @@
 const {resolve} = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const sources = require('./src');
 
 const ruleEslint = {
   test: /\.js$/,
@@ -13,6 +14,7 @@ const ruleEslint = {
     fix: false,
   },
 };
+
 const ruleJavascript = {
   test: /\.js$/,
   exclude: /node_modules/,
@@ -31,22 +33,26 @@ const ruleJavascript = {
 };
 
 const cleanWebpackPlugin = new CleanWebpackPlugin(['dist', 'view']);
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  template: resolve(__dirname, 'src/home/index.html'),
-  filename: resolve(__dirname, 'view/home/index.html'),
-  minify: {
-    removeComments: true,
-    collapseWhitespace: true,
-    conservativeCollapse: true,
-  },
+
+const htmlWebpackPlugins = Object.keys(sources).map((sourceName) => {
+  return new HtmlWebpackPlugin({
+    chunks: ['common', sourceName],
+    template: resolve(__dirname, 'src' + sources[sourceName].html),
+    filename: resolve(__dirname, 'view' + sources[sourceName].html),
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+    },
+  });
 });
 
 module.exports = {
   cache: true,
   context: __dirname,
-  entry: {
-    home: './src/home/index.js',
-  },
+  entry: Object.keys(sources).reduce((results, sourceName) => {
+    results[sourceName] = './src' + sources[sourceName].js;
+    return results;
+  }, {}),
   resolve: {
     extensions: ['.js'],
   },
@@ -56,5 +62,5 @@ module.exports = {
     publicPath: '/',
   },
   module: {rules: [ruleEslint, ruleJavascript]},
-  plugins: [cleanWebpackPlugin, htmlWebpackPlugin],
+  plugins: [cleanWebpackPlugin, ...htmlWebpackPlugins],
 };
