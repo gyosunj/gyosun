@@ -24,6 +24,7 @@ log
 *.log
 *.sql
 *.sqlite
+.eslintcache
 
 # OS generated files #
 .DS_Store
@@ -41,5 +42,6 @@ Thumbs.db
 # Nodem Module #
 node_modules
 
-# Dist #
+# Build #
 dist
+view

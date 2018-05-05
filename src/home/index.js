@@ -1,8 +1,19 @@
 require('./style.css');
-const core = require('../_shared/javascript/core');
+require('../_shared/javascript/core')();
+
 const plus = require('./plus')();
-core();
+
 const root = document.createElement('div');
+
 root.innerHTML = `<p>Hello Webpack.</p>`;
 document.body.appendChild(root);
 console.log(plus.two(1));
+
+// IE will fail
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false,
+};
+
+console.log(Object.values(object1));

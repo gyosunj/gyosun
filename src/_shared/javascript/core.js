@@ -11,5 +11,5 @@ module.exports = function() {
     'font-weight: bold',
   ].join(';');
 
-  console.log('%c I\'m core!', styles);
+  console.log('%c I\'m core!!!!', styles);
 };
