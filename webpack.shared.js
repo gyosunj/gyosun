@@ -1,9 +1,12 @@
-const {resolve} = require('path');
+const {join, resolve} = require('path');
+const {lstatSync, readdirSync} = require('fs');
+const PAGE_SOURCES = '/src/page/';
+const viewPageDirectory = join(process.cwd(), PAGE_SOURCES);
+const viewPages = readdirSync(viewPageDirectory)
+  .filter((pageDirectory) => lstatSync(join(viewPageDirectory, pageDirectory)).isDirectory());
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const sources = require('./src');
 
-const ruleEslint = {
+const loaderEslint = {
   test: /\.js$/,
   enforce: 'pre',
   loader: 'eslint-loader',
@@ -15,7 +18,7 @@ const ruleEslint = {
   },
 };
 
-const ruleJavascript = {
+const loaderJavascript = {
   test: /\.js$/,
   exclude: /node_modules/,
   use: {
@@ -32,35 +35,42 @@ const ruleJavascript = {
   },
 };
 
-const cleanWebpackPlugin = new CleanWebpackPlugin(['dist', 'view']);
-
-const htmlWebpackPlugins = Object.keys(sources).map((sourceName) => {
-  return new HtmlWebpackPlugin({
-    chunks: ['common', sourceName],
-    template: resolve(__dirname, 'src' + sources[sourceName].html),
-    filename: resolve(__dirname, 'view' + sources[sourceName].html),
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
+const loaderImage = {
+  test: /\.(png|svg|jpg|gif)$/,
+  use: [{
+    loader: 'file-loader',
+    options: {
+      mimetype: 'application/x-font-ttf',
     },
-  });
-});
+  }],
+};
+
+const loaderMarko = {
+  test: /\.marko$/,
+  loader: 'marko-loader',
+};
+
+const cleanWebpackPlugin = new CleanWebpackPlugin(['dist']);
 
 module.exports = {
   cache: true,
   context: __dirname,
-  entry: Object.keys(sources).reduce((results, sourceName) => {
-    results[sourceName] = './src' + sources[sourceName].js;
+  entry: viewPages.reduce((results, absoluteDirPath) => {
+    results[absoluteDirPath] = './src/page/' + absoluteDirPath + '/index.js';
     return results;
   }, {}),
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.marko'],
   },
   output: {
-    filename: '[name]-bundle.[chunkhash].js',
-    path: resolve(__dirname, 'dist'),
+    filename: '[name]-bundle.js',
+    path: resolve(__dirname, 'dist/'),
     publicPath: '/',
   },
-  module: {rules: [ruleEslint, ruleJavascript]},
-  plugins: [cleanWebpackPlugin, ...htmlWebpackPlugins],
+  module: {
+    rules: [loaderEslint, loaderJavascript, loaderImage, loaderMarko],
+  },
+  plugins: [cleanWebpackPlugin],
 };
+
+// new webpack.NoEmitOnErrorsPlugin(),

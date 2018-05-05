@@ -1,0 +1,10 @@
+.namespace-component-h2 {
+  margin-top: -1rem;
+  padding: 1rem 1.5rem;
+  height: 325px;
+  background: #ccc;
+  background-image: url("./analog-art-beautiful-963486-min.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
