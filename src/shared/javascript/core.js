@@ -1,15 +1,19 @@
-module.exports = function() {
-  const styles = [
-    'background: linear-gradient(#D33106, #571402)',
-    'border: 1px solid #3E0E02',
-    'color: white',
-    'display: block',
-    'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
-    'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 5px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 5px -10px rgba(255, 255, 255, 0.4) inset',
-    'line-height: 40px',
-    'text-align: center',
-    'font-weight: bold',
-  ].join(';');
+function init() {
+  console.log(
+    '%c core.js!!!', `
+      font-weight: bold;
+      font-size: 50px;
+      color: red;
+      text-shadow: 3px 3px 0 rgb(217,31,38),
+      6px 6px 0 rgb(226,91,14),
+      9px 9px 0 rgb(245,221,8),
+      12px 12px 0 rgb(5,148,68),
+      15px 15px 0 rgb(2,135,206),
+      18px 18px 0 rgb(4,77,145),
+      21px 21px 0 rgb(42,21,113)
+    `);
+};
 
-  console.log('%c I\'m core!!!!', styles);
+module.exports = {
+  init,
 };

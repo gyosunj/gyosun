@@ -1,18 +1,21 @@
-const onee = 1;
-console.log('outside');
+let privateNumber = 0;
 
-module.exports = function() {
-  console.log('inside');
-  function one(input) {
-    return input + onee;
-  }
+function getPrivateNumber() {
+  return privateNumber;
+}
 
-  function two(input) {
-    return input + 2;
-  }
+function incrementPrivateNumber() {
+  privateNumber++;
+  console.log('Now privateNumber is %s', privateNumber);
+}
 
-  return {
-    one: one,
-    two: two,
-  };
+function init() {
+  privateNumber++;
+  console.log('privateNumber is %s.', privateNumber);
+};
+
+module.exports = {
+  init,
+  getPrivateNumber,
+  incrementPrivateNumber,
 };
