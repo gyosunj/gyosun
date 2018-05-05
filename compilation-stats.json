@@ -1,0 +1,23 @@
+{
+  "errors": [
+    "Entry module not found: Error: Can't resolve './src' in '/Users/gyosunjung/Dev/gyosun'\nresolve './src' in '/Users/gyosunjung/Dev/gyosun'\n  using description file: /Users/gyosunjung/Dev/gyosun/package.json (relative path: .)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /Users/gyosunjung/Dev/gyosun/package.json (relative path: ./src)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/gyosunjung/Dev/gyosun/src is not a file\n      .wasm\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/gyosunjung/Dev/gyosun/src.wasm doesn't exist\n      .mjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/gyosunjung/Dev/gyosun/src.mjs doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/gyosunjung/Dev/gyosun/src.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/gyosunjung/Dev/gyosun/src.json doesn't exist\n      as directory\n        existing directory\n          using path: /Users/gyosunjung/Dev/gyosun/src/index\n            using description file: /Users/gyosunjung/Dev/gyosun/package.json (relative path: ./src/index)\n              no extension\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/gyosunjung/Dev/gyosun/src/index doesn't exist\n              .wasm\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/gyosunjung/Dev/gyosun/src/index.wasm doesn't exist\n              .mjs\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/gyosunjung/Dev/gyosun/src/index.mjs doesn't exist\n              .js\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/gyosunjung/Dev/gyosun/src/index.js doesn't exist\n              .json\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/gyosunjung/Dev/gyosun/src/index.json doesn't exist"
+  ],
+  "warnings": [
+    "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/"
+  ],
+  "version": "4.7.0",
+  "hash": "5bc8588d1b2466eba124",
+  "time": 70,
+  "builtAt": 1525499484571,
+  "publicPath": "",
+  "outputPath": "/Users/gyosunjung/Dev/gyosun/dist",
+  "assetsByChunkName": {},
+  "assets": [],
+  "filteredAssets": 0,
+  "entrypoints": {},
+  "namedChunkGroups": {},
+  "chunks": [],
+  "modules": [],
+  "filteredModules": 0,
+  "children": []
+}

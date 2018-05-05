@@ -1,5 +1,8 @@
 require('./style.css');
 require('../_shared/javascript/core')();
+const myComponent = require('./hello.marko');
+
+myComponent.renderSync({name: 'Marko'}).appendTo(document.body);
 
 const plus = require('./plus')();
 
@@ -14,6 +17,7 @@ const object1 = {
   a: 'somestring',
   b: 43,
   c: false,
+  d: true,
 };
 
 console.log(Object.values(object1));

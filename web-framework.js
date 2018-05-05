@@ -10,6 +10,7 @@ const envName = process.env.NODE_ENV;
 express.use(bodyParser.urlencoded({extended: false}));
 express.use(bodyParser.json({limit: '100kb'}));
 express.use(cookieParser);
+express.use(require('compression')());
 
 express.use((req, res, next) => {
   res[APP_CONSTANT.NAME_SPACE.RESPONSE_CONFIG] = config[envName];

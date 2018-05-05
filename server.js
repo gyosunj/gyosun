@@ -39,5 +39,9 @@ if (cluster.isMaster && process.env.NODE_ENV === APP_ENVS.PRODUCTION) {
 } else {
   createServer(webFramework).listen(parseInt(httpPort, 10), ()=> {
     console.log('Http NodeJS Server is running on port ' + httpPort);
+
+    if (process.send) {
+      process.send('online');
+    }
   });
 }

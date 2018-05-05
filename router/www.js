@@ -1,4 +1,7 @@
 /* eslint new-cap: off */
+require('marko/express');
+require('marko/node-require');
+require('marko/browser-refresh').enable();
 const middleware = require('../middleware/');
 const express = require('express');
 const router = express.Router();
