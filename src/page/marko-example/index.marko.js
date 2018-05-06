@@ -38,6 +38,9 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
+    deps: [
+      "./style.css"
+    ],
     id: "/gyosun$1.0.0/src/page/marko-example/index.marko",
     tags: [
       "../../shared/layout/default",
