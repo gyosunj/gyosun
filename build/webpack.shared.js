@@ -77,6 +77,7 @@ const loaderFont = {
   },
 };
 
+
 module.exports = {
   cache: true,
   context: pathResolve('/'),
