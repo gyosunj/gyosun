@@ -1,4 +1,4 @@
 module.exports = {
   www: require('./www'),
-  // api: require('./api'),
+  api: require('./api'),
 };

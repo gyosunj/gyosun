@@ -18,6 +18,7 @@ if (process.env.NODE_ENV === APP_CONSTANT.NODE_ENV.DEVELOPMENT) {
 router.use(middleware.resRoute);
 router.use((req, res, next)=>{
   res[APP_CONSTANT.NAME_SPACE.RESPONSE_CONFIG].routes = routes;
+  res[APP_CONSTANT.NAME_SPACE.RESPONSE_CONFIG].router = APP_CONSTANT.ROUTERS.WWW;
   next();
 });
 router.use(middleware.resMeta);
@@ -28,8 +29,5 @@ Object.keys(controllers).forEach((routeKeyName) => {
   routes[routeKeyName] = Object.assign(route, {routeKeyName});
   router.route(route.path)[route.method.toLowerCase()](route.routeHandler);
 });
-
-router.use(middleware.errHandler.www.four04);
-router.use(middleware.errHandler.www.defaultHandler);
 
 module.exports = router;

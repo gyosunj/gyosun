@@ -7,4 +7,8 @@ module.exports = {
     RESPONSE_CONFIG: '__$$config',
     RESPONSE_CONTEXT: '__$$context',
   },
+  ROUTERS: {
+    API: 'api',
+    WWW: 'www',
+  },
 };
