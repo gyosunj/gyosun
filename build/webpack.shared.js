@@ -45,7 +45,14 @@ const loaderJavascript = {
     loader: 'babel-loader',
     options: {
       presets: [
-        ['env', {'targets': {'browsers': ['ie >= 10']}}],
+        ['env', {
+          targets: {
+            browsers: ['last 2 versions', 'ie >= 10'],
+          },
+          modules: false,
+          useBuiltIns: true,
+          debug: false,
+        }],
       ],
     },
   },
