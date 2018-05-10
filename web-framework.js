@@ -5,8 +5,10 @@ const router = require('./router/');
 const APP_CONSTANT = require('./resource/').APP_CONSTANT;
 const config = require('./config');
 const express = require('express')();
+const helmet = require('helmet');
 const envName = process.env.NODE_ENV;
 
+express.use(helmet());
 express.use(bodyParser.urlencoded({extended: false}));
 express.use(bodyParser.json({limit: '100kb'}));
 express.use(cookieParser);

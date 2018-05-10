@@ -1,5 +1,5 @@
 @import 'reset.css';
-@import url('https://fonts.googleapis.com/css?family=Lato|Slabo+27px');
+@import 'fonts.css';
 
 body {
   font-size: 14px;

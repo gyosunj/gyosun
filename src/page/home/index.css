@@ -1,0 +1,7 @@
+@import '../../shared/stylesheet/core.css';
+@import './stylesheet/custom.css';
+@import './stylesheet/component-h1.css';
+@import './stylesheet/component-h2.css';
+@import './stylesheet/component-h3.css';
+@import './stylesheet/component-h4.css';
+@import './stylesheet/component-h5.css';

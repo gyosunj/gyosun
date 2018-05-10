@@ -1,4 +1,4 @@
-function init() {
+module.exports = () => {
   console.log(
     '%c core.js!!!', `
       font-weight: bold;
@@ -12,8 +12,4 @@ function init() {
       18px 18px 0 rgb(4,77,145),
       21px 21px 0 rgb(42,21,113)
     `);
-};
-
-module.exports = {
-  init,
 };
