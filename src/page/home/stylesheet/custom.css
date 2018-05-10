@@ -5,3 +5,7 @@ h1 {
 h2 {
   color:#ebebeb;
 }
+
+.component-movies-button__result-movie-container {
+  padding: 2rem;
+}
