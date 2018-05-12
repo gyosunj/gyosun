@@ -1,3 +1,3 @@
 require('./index.css');
-require('../../shared/javascript/core')();
+require('../../asset/javascript/core')();
 require('./javascript/init')();
