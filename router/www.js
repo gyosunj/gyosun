@@ -4,7 +4,7 @@ require('marko/node-require');
 const middleware = require('../middleware/');
 const express = require('express');
 const router = express.Router();
-const controllers = require('../app/www/');
+const controllers = require('../route/www/');
 const {APP_CONSTANT} = require('../resource/');
 const markoRefresh = require('../marko-reload');
 
@@ -12,11 +12,11 @@ let routes = {};
 
 if (process.env.NODE_ENV === APP_CONSTANT.NODE_ENV.DEVELOPMENT) {
   router.use(express.static('static', {maxAge: 'no-cache'}));
-  router.use(express.static('dist', {maxAge: 'no-cache'}));
+  router.use(express.static('dist/asset/', {maxAge: 'no-cache'}));
   markoRefresh();
 } else {
   router.use(express.static('static', {maxAge: '1m'}));
-  router.use(express.static('dist', {maxAge: '1y'}));
+  router.use(express.static('dist/asset/', {maxAge: '1y'}));
 }
 
 router.use(middleware.resRoute);

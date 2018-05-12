@@ -6,22 +6,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const currentWorkingDirectory = process.cwd();
 const pathResolve = (path) => join(currentWorkingDirectory, path);
-const viewPageDirectory = pathResolve('/src/page/');
+
+const {BUILD} = require(pathResolve('/resource/')).APP_CONSTANT;
+const viewPageDirectory = pathResolve(BUILD.MARKUP_PAGE_SOURCE);
 const viewPages = readdirSync(viewPageDirectory)
   .filter((pageDirectory) => lstatSync(join(viewPageDirectory, pageDirectory)).isDirectory());
 
-const cleanWebpackPlugin = new CleanWebpackPlugin(['dist', 'view'], {root: pathResolve('/')});
+const cleanWebpackPlugin = new CleanWebpackPlugin([BUILD.DIST], {root: pathResolve('/')});
 const htmlWebpackPlugins = viewPages.map((pageName) => {
   return new HtmlWebpackPlugin({
-    template: pathResolve('/src/page/') + pageName + '/index.html',
-    filename: pathResolve('/view/') + pageName + '/index.marko',
-    // inject: true,
+    template: pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.html',
+    filename: pathResolve(BUILD.MARKUP_PAGE_DIST) + pageName + '/index.marko',
+    inject: pageName === 'layout' ? false : true,
     // minify: {
     //   removeComments: true,
     //   collapseWhitespace: true,
-    //   removeAttributeQuotes: true,
     // },
-    // chunksSortMode: 'dependency',
+    showErrors: true,
+    chunks: [pageName],
   });
 });
 
@@ -87,7 +89,7 @@ const loaderHtml = {
   use: {
     loader: 'html-loader',
     options: {
-      publicPath: '/',
+      publicPath: BUILD.PUBLIC_PATH,
     },
   },
 };
@@ -96,7 +98,7 @@ module.exports = {
   cache: true,
   context: __dirname,
   entry: viewPages.reduce((results, pageName) => {
-    results[pageName] = pathResolve('/src/page/') + pageName + '/index.js';
+    results[pageName] = pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.js';
     return results;
   }, {}),
   resolve: {
@@ -104,8 +106,8 @@ module.exports = {
   },
   output: {
     filename: '[name]-bundle.js',
-    path: pathResolve('/dist/'),
-    publicPath: '/',
+    path: pathResolve(BUILD.BUNDLED_ASSET_DIST),
+    publicPath: BUILD.PUBLIC_PATH,
   },
   module: {
     rules: [loaderEslint, loaderJavascript, loaderImage, loaderFont, loaderCss, loaderMarko, loaderHtml],

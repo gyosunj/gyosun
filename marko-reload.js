@@ -1,5 +1,6 @@
 const {join} = require('path');
-const SOURCE_DIRECTORY = '/src/';
+const {BUILD} = require('./resource').APP_CONSTANT;
+const SOURCE_DIRECTORY = BUILD.MARKUP_SOURCE;
 const nodeDir = require('node-dir');
 
 function getAllMarkoFiles(callback) {
