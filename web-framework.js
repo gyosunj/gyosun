@@ -8,7 +8,7 @@ const express = require('express')();
 const helmet = require('helmet');
 const envName = process.env.NODE_ENV;
 
-express.use(helmet());
+// express.use(helmet());
 express.use(middleware.logger());
 express.use(bodyParser.urlencoded({extended: false}));
 express.use(bodyParser.json({limit: '100kb'}));

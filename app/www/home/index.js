@@ -1,7 +1,7 @@
 const {join} = require('path');
 
 function indexHandler(req, res, next) {
-  res.sendFile(join(process.cwd(), 'view/home/index.marko'));
+  res.sendFile(join(process.cwd(), 'view/home/index.html'));
 }
 
 module.exports = {

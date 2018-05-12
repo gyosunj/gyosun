@@ -1,6 +1,7 @@
 require('./style.css');
-require('../../shared/javascript/core').init();
+require('../../shared/javascript/core')();
 const clientTemplate = require('./client-template.marko');
+const className = 'client-template__container';
 
 clientTemplate
   .render({
@@ -12,5 +13,5 @@ clientTemplate
     },
   })
   .then((marko) => {
-    marko.appendTo(document.getElementsByClassName('client-template__container')[0]);
+    marko.appendTo(document.getElementsByClassName(className)[0]);
   });

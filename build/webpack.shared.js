@@ -14,14 +14,14 @@ const cleanWebpackPlugin = new CleanWebpackPlugin(['dist', 'view'], {root: pathR
 const htmlWebpackPlugins = viewPages.map((pageName) => {
   return new HtmlWebpackPlugin({
     template: pathResolve('/src/page/') + pageName + '/index.html',
-    filename: pathResolve('/view/') + pageName + '/index.html',
-    inject: true,
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true,
-    },
-    chunksSortMode: 'dependency',
+    filename: pathResolve('/view/') + pageName + '/index.marko',
+    // inject: true,
+    // minify: {
+    //   removeComments: true,
+    //   collapseWhitespace: true,
+    //   removeAttributeQuotes: true,
+    // },
+    // chunksSortMode: 'dependency',
   });
 });
 
@@ -65,6 +65,11 @@ const loaderImage = {
   }],
 };
 
+const loaderCss = {
+  test: /\.css$/,
+  use: [{loader: 'style-loader'}, {loader: 'css-loader'}],
+};
+
 const loaderFont = {
   test: /\.(ttf|eot|woff|woff2)$/,
   use: {
@@ -103,7 +108,7 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    rules: [loaderEslint, loaderJavascript, loaderImage, loaderFont, loaderMarko, loaderHtml],
+    rules: [loaderEslint, loaderJavascript, loaderImage, loaderFont, loaderCss, loaderMarko, loaderHtml],
   },
   plugins: [cleanWebpackPlugin, ...htmlWebpackPlugins],
 };
