@@ -9,21 +9,40 @@ const pathResolve = (path) => join(currentWorkingDirectory, path);
 
 const {BUILD} = require(pathResolve('/resource/')).APP_CONSTANT;
 const viewPageDirectory = pathResolve(BUILD.MARKUP_PAGE_SOURCE);
+const viewSharedDirectory = pathResolve(BUILD.MARKUP_SHARED_SOURCE);
+
 const viewPages = readdirSync(viewPageDirectory)
   .filter((pageDirectory) => lstatSync(join(viewPageDirectory, pageDirectory)).isDirectory());
 
-const cleanWebpackPlugin = new CleanWebpackPlugin([BUILD.DIST], {root: pathResolve('/')});
-const htmlWebpackPlugins = viewPages.map((pageName) => {
+const viewShared = readdirSync(viewSharedDirectory)
+  .filter((pageDirectory) => lstatSync(join(viewSharedDirectory, pageDirectory)).isDirectory());
+
+const cleanWebpackPlugin = new CleanWebpackPlugin(BUILD.CLEANUP_TARGETS, {root: pathResolve('/')});
+
+const htmlWebpackPluginsPages = viewPages.map((pageName) => {
   return new HtmlWebpackPlugin({
     template: pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.html',
     filename: pathResolve(BUILD.MARKUP_PAGE_DIST) + pageName + '/index.marko',
-    inject: pageName === 'layout' ? false : true,
+    inject: true,
     // minify: {
     //   removeComments: true,
     //   collapseWhitespace: true,
     // },
     showErrors: true,
     chunks: [pageName],
+  });
+});
+
+const htmlWebpackPluginsShared = viewShared.map((pageName) => {
+  return new HtmlWebpackPlugin({
+    template: pathResolve(BUILD.MARKUP_SHARED_SOURCE) + pageName + '/index.html',
+    filename: pathResolve(BUILD.MARKUP_SHARED_DIST) + pageName + '/index.marko',
+    inject: false,
+    // minify: {
+    //   removeComments: true,
+    //   collapseWhitespace: true,
+    // },
+    showErrors: true,
   });
 });
 
@@ -112,5 +131,5 @@ module.exports = {
   module: {
     rules: [loaderEslint, loaderJavascript, loaderImage, loaderFont, loaderCss, loaderMarko, loaderHtml],
   },
-  plugins: [cleanWebpackPlugin, ...htmlWebpackPlugins],
+  plugins: [cleanWebpackPlugin, ...htmlWebpackPluginsPages, ...htmlWebpackPluginsShared],
 };
