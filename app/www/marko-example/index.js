@@ -1,5 +1,7 @@
+const {join} = require('path');
+
 function indexHandler(req, res) {
-  require('../../../src/page/marko-example/index.marko').render({
+  require(join(process.cwd(), 'view/marko-example/index.marko')).render({
     pageName: 'Marko Example',
   }, res);
 };
