@@ -2,7 +2,7 @@
 const middleware = require('../middleware/');
 const express = require('express');
 const router = express.Router();
-const controllers = require('../app/api/');
+const controllers = require('../route/api/');
 const {APP_CONSTANT} = require('../resource/');
 
 let routes = {};

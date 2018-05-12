@@ -6,22 +6,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const currentWorkingDirectory = process.cwd();
 const pathResolve = (path) => join(currentWorkingDirectory, path);
-const viewPageDirectory = pathResolve('/src/page/');
+
+const {BUILD} = require(pathResolve('/resource/')).APP_CONSTANT;
+const viewPageDirectory = pathResolve(BUILD.MARKUP_PAGE_SOURCE);
 const viewPages = readdirSync(viewPageDirectory)
   .filter((pageDirectory) => lstatSync(join(viewPageDirectory, pageDirectory)).isDirectory());
 
-const cleanWebpackPlugin = new CleanWebpackPlugin(['dist', 'view'], {root: pathResolve('/')});
+const cleanWebpackPlugin = new CleanWebpackPlugin([BUILD.DIST], {root: pathResolve('/')});
 const htmlWebpackPlugins = viewPages.map((pageName) => {
   return new HtmlWebpackPlugin({
-    template: pathResolve('/src/page/') + pageName + '/index.html',
-    filename: pathResolve('/view/') + pageName + '/index.html',
-    inject: true,
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true,
-    },
-    chunksSortMode: 'dependency',
+    template: pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.html',
+    filename: pathResolve(BUILD.MARKUP_PAGE_DIST) + pageName + '/index.marko',
+    inject: pageName === 'layout' ? false : true,
+    // minify: {
+    //   removeComments: true,
+    //   collapseWhitespace: true,
+    // },
+    showErrors: true,
+    chunks: [pageName],
   });
 });
 
@@ -61,7 +63,7 @@ const loaderJavascript = {
 const loaderImage = {
   test: /\.(png|svg|jpg|gif)$/,
   use: [{
-    loader: 'file-loader',
+    loader: 'file-loader?name=[name]-[hash:6].[ext]',
   }],
 };
 
@@ -73,27 +75,42 @@ const loaderCss = {
 const loaderFont = {
   test: /\.(ttf|eot|woff|woff2)$/,
   use: {
-    loader: 'file-loader',
+    loader: 'file-loader?name=[name]-[hash:6].[ext]',
+  },
+};
+
+const loaderMarko = {
+  test: /\.marko$/,
+  loader: 'marko-loader',
+};
+
+const loaderHtml = {
+  test: /\.html$/,
+  use: {
+    loader: 'html-loader',
+    options: {
+      publicPath: BUILD.PUBLIC_PATH,
+    },
   },
 };
 
 module.exports = {
   cache: true,
-  context: pathResolve('/'),
+  context: __dirname,
   entry: viewPages.reduce((results, pageName) => {
-    results[pageName] = pathResolve('/src/page/') + pageName + '/index.js';
+    results[pageName] = pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.js';
     return results;
   }, {}),
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.marko'],
   },
   output: {
     filename: '[name]-bundle.js',
-    path: pathResolve('/dist/'),
-    publicPath: '/',
+    path: pathResolve(BUILD.BUNDLED_ASSET_DIST),
+    publicPath: BUILD.PUBLIC_PATH,
   },
   module: {
-    rules: [loaderEslint, loaderJavascript, loaderImage, loaderCss, loaderFont],
+    rules: [loaderEslint, loaderJavascript, loaderImage, loaderFont, loaderCss, loaderMarko, loaderHtml],
   },
   plugins: [cleanWebpackPlugin, ...htmlWebpackPlugins],
 };

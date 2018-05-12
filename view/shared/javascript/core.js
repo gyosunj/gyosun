@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = ()=> {
   console.log(
     '%c core.js!!!', `
       font-weight: bold;
