@@ -1,5 +1,6 @@
 const {lstatSync, readdirSync} = require('fs');
 const {join} = require('path');
+const nodeDir = require('node-dir');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -14,8 +15,7 @@ const viewSharedDirectory = pathResolve(BUILD.MARKUP_SHARED_SOURCE);
 const viewPages = readdirSync(viewPageDirectory)
   .filter((pageDirectory) => lstatSync(join(viewPageDirectory, pageDirectory)).isDirectory());
 
-const viewShared = readdirSync(viewSharedDirectory)
-  .filter((pageDirectory) => lstatSync(join(viewSharedDirectory, pageDirectory)).isDirectory());
+const viewShared = nodeDir.files(viewSharedDirectory, {sync: true}).filter((file) => file.indexOf('.html') !== -1);
 
 const cleanWebpackPlugin = new CleanWebpackPlugin(BUILD.CLEANUP_TARGETS, {root: pathResolve('/')});
 
@@ -24,24 +24,16 @@ const htmlWebpackPluginsPages = viewPages.map((pageName) => {
     template: pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.html',
     filename: pathResolve(BUILD.MARKUP_PAGE_DIST) + pageName + '/index.marko',
     inject: true,
-    // minify: {
-    //   removeComments: true,
-    //   collapseWhitespace: true,
-    // },
     showErrors: true,
     chunks: [pageName],
   });
 });
 
-const htmlWebpackPluginsShared = viewShared.map((pageName) => {
+const htmlWebpackPluginsShared = viewShared.map((fullFilePath) => {
   return new HtmlWebpackPlugin({
-    template: pathResolve(BUILD.MARKUP_SHARED_SOURCE) + pageName + '/index.html',
-    filename: pathResolve(BUILD.MARKUP_SHARED_DIST) + pageName + '/index.marko',
+    template: fullFilePath,
+    filename: fullFilePath.replace(/\/view\//i, '/dist/').replace(/\.html$/i, '.marko'),
     inject: false,
-    // minify: {
-    //   removeComments: true,
-    //   collapseWhitespace: true,
-    // },
     showErrors: true,
   });
 });
