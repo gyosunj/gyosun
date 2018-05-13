@@ -1,6 +1,6 @@
 {
   "name": "gyosun",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "description": "The simplest tasks are by no means the easiest. - Diary of a Country Priest (1951)",
   "main": "server.js",
   "scripts": {
