@@ -7,11 +7,15 @@ process.once('uncaughtException', (err)=> {
 function parseProcessArgv(results, val) {
   let arrArgument;
 
-  if (typeof val !== 'string') return results;
+  if (typeof val !== 'string') {
+    return results;
+  }
 
   arrArgument = val.split('=');
 
-  if (arrArgument.length !== 2) return results;
+  if (arrArgument.length !== 2) {
+    return results;
+  }
 
   results[arrArgument[0]] = arrArgument[1];
 

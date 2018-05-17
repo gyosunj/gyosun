@@ -7,9 +7,13 @@ module.exports = {
     RESPONSE_CONFIG: '__$$config',
     RESPONSE_CONTEXT: '__$$context',
   },
-  ROUTERS: {
+  ROUTER: {
     API: 'api',
     WWW: 'www',
+  },
+  STATIC_DIRECTORY: {
+    ROOT: 'static/',
+    ASSET: 'dist/asset/',
   },
   BUILD: {
     DIST: '/dist/',

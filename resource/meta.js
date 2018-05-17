@@ -4,11 +4,11 @@ module.exports = {
   title: 'This is a title.',
   description: 'This is a description.',
   wwwHome: {
-    title: 'This is a Home title.',
-    description: 'This is a Home description.',
+    title: 'This is a Home title. from Meta.json',
+    description: 'This is a Home description. from Meta.json',
   },
-  wwwContact: {
-    title: 'This is a Contact title.',
-    description: 'This is a Contact description.',
+  wwwMarko: {
+    title: 'This is a Marko page title. from Meta.json',
+    description: 'This is a Marko page description. from Meta.json',
   },
 };

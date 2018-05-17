@@ -24,6 +24,8 @@ express.use((req, res, next) => {
   next();
 });
 
+express.use(middleware.resUri);
+
 express.use('/', router.www);
 express.use('/api', router.api);
 
