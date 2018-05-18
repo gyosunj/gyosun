@@ -5,6 +5,6 @@ module.exports = webpackMerge(webpackShared, {
   mode: 'production',
   devtool: false,
   output: {
-    filename: '[name]-bundle.[chunkhash].js',
+    filename: '[chunkhash].js',
   },
 });

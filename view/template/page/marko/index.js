@@ -1,5 +1,5 @@
-require('./style.css');
-require('../../asset/javascript/core')();
+require('./marko.css');
+require('../../../asset/javascript/core')();
 const clientTemplate = require('./client-template.marko');
 
 clientTemplate

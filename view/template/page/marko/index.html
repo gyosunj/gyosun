@@ -1,4 +1,5 @@
-<include("../../shared/layout/index")>
+
+<include("../_layout-default/index")>
     <@body>
         <h1>This is ${ input.pageName } Page</h1>
         <h2>This is ${ input.pageTitle } Page</h2>
@@ -6,5 +7,6 @@
         <h3>Sub Title</h3>
         <h4>Client Template</h4>
         <div class="client-template__container"></div>
+        <include('../../partial/iampartial')/>
     </@body>
 </include>

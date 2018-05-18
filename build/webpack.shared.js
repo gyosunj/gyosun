@@ -4,37 +4,47 @@ const nodeDir = require('node-dir');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 const currentWorkingDirectory = process.cwd();
 const pathResolve = (path) => join(currentWorkingDirectory, path);
 
 const {BUILD} = require(pathResolve('/resource/')).APP_CONSTANT;
 const viewPageDirectory = pathResolve(BUILD.MARKUP_PAGE_SOURCE);
-const viewSharedDirectory = pathResolve(BUILD.MARKUP_SHARED_SOURCE);
+const viewPartialDirectory = pathResolve(BUILD.MARKUP_PARTIAL_SOURCE);
 
 const viewPages = readdirSync(viewPageDirectory)
   .filter((pageDirectory) => lstatSync(join(viewPageDirectory, pageDirectory)).isDirectory());
 
-const viewShared = nodeDir.files(viewSharedDirectory, {sync: true}).filter((file) => file.indexOf('.html') !== -1);
+const viewPartials = nodeDir.files(viewPartialDirectory, {sync: true}).filter((file) => file.indexOf('.html') !== -1);
 
 const cleanWebpackPlugin = new CleanWebpackPlugin(BUILD.CLEANUP_TARGETS, {root: pathResolve('/')});
 
 const htmlWebpackPluginsPages = viewPages.map((pageName) => {
-  return new HtmlWebpackPlugin({
+  let options = {
     template: pathResolve(BUILD.MARKUP_PAGE_SOURCE) + pageName + '/index.html',
     filename: pathResolve(BUILD.MARKUP_PAGE_DIST) + pageName + '/index.marko',
     inject: true,
     showErrors: true,
     chunks: [pageName],
-  });
+  };
+
+  if (pageName.includes('_layout-')) {
+    options.inject = 'head';
+    options.inlineSource = '.js$';
+  }
+
+  return new HtmlWebpackPlugin(options);
 });
 
-const htmlWebpackPluginsShared = viewShared.map((fullFilePath) => {
+const htmlWebpackPluginsPartials = viewPartials.map((fullFilePath) => {
   return new HtmlWebpackPlugin({
     template: fullFilePath,
     filename: fullFilePath.replace(/\/view\//i, '/dist/').replace(/\.html$/i, '.marko'),
     inject: false,
     showErrors: true,
+    chunks: [],
+    isForceToUseLodashLoader: true,
   });
 });
 
@@ -74,19 +84,23 @@ const loaderJavascript = {
 const loaderImage = {
   test: /\.(png|svg|jpg|gif)$/,
   use: [{
-    loader: 'file-loader?name=[name]-[hash:6].[ext]',
+    loader: 'file-loader?name=[hash].[ext]',
   }],
 };
 
 const loaderCss = {
   test: /\.css$/,
-  use: [{loader: 'style-loader'}, {loader: 'css-loader'}],
+  use: [{
+    loader: 'style-loader',
+  }, {
+    loader: 'css-loader',
+  }],
 };
 
 const loaderFont = {
   test: /\.(ttf|eot|woff|woff2)$/,
   use: {
-    loader: 'file-loader?name=[name]-[hash:6].[ext]',
+    loader: 'file-loader?name=[hash].[ext]',
   },
 };
 
@@ -116,12 +130,25 @@ module.exports = {
     extensions: ['.js', '.marko'],
   },
   output: {
-    filename: '[name]-bundle.js',
+    filename: '[name].js',
     path: pathResolve(BUILD.BUNDLED_ASSET_DIST),
     publicPath: BUILD.PUBLIC_PATH,
   },
+  plugins: [
+    cleanWebpackPlugin,
+    ...htmlWebpackPluginsPages,
+    ...htmlWebpackPluginsPartials,
+    new HtmlWebpackInlineSourcePlugin(),
+  ],
   module: {
-    rules: [loaderEslint, loaderJavascript, loaderImage, loaderFont, loaderCss, loaderMarko, loaderHtml],
+    rules: [
+      loaderEslint,
+      loaderJavascript,
+      loaderImage,
+      loaderFont,
+      loaderCss,
+      loaderHtml,
+      loaderMarko,
+    ],
   },
-  plugins: [cleanWebpackPlugin, ...htmlWebpackPluginsPages, ...htmlWebpackPluginsShared],
 };
