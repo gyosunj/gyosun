@@ -1,4 +1,5 @@
 module.exports = {
   wwwHome: require('./home/'),
-  wwwMarko: require('./marko'),
+  wwwMarko: require('./marko/'),
+  wwwBrowserSupport: require('./browser-support/'),
 };

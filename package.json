@@ -31,7 +31,9 @@
     "jquery": "^3.3.1",
     "marko": "^4.9.7",
     "morgan": "^1.9.0",
-    "node-dir": "^0.1.17"
+    "node-dir": "^0.1.17",
+    "semver": "^5.5.0",
+    "useragent": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

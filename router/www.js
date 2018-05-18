@@ -25,6 +25,8 @@ router.use((req, res, next)=>{
   next();
 });
 
+router.use(middleware.browserCheck);
+
 Object.keys(controllers).forEach((routeKeyName) => {
   const route = controllers[routeKeyName];
 
