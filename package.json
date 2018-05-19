@@ -4,7 +4,7 @@
   "description": "The simplest tasks are by no means the easiest. - Diary of a Country Priest (1951)",
   "main": "server.js",
   "scripts": {
-    "start": "profile=PRODUCTION port=5000 node server.js",
+    "start": "profile=PRODUCTION node server.js",
     "node:dev": "node server.js env=DEVELOPMENT",
     "node:debug": "node --inspect-brk=9229 server.js env=DEVELOPMENT",
     "webpack:dev": "webpack --config build/webpack.dev.js",
