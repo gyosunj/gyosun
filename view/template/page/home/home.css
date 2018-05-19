@@ -1,6 +1,29 @@
-@import './stylesheet/custom.css';
-@import './stylesheet/component-h1.css';
-@import './stylesheet/component-h2.css';
-@import './stylesheet/component-h3.css';
-@import './stylesheet/component-h4.css';
-@import './stylesheet/component-h5.css';
+body {
+  color: #fff;
+  text-align: center;
+  background-color: #EA178C;
+}
+.section-name,
+.section-contact,
+.section-copyleft {
+  padding: 2rem;
+}
+
+.section-name h1, 
+.section-name h4 {
+  margin: .5rem 0;
+}
+
+.section-contact h3 {
+  margin-top: 3rem;
+}
+
+.section-contact__list {
+  padding: 1rem;
+}
+
+.section-contact__list-item {
+  width: 2rem;
+  margin: .5rem;
+  display: inline-block;
+}

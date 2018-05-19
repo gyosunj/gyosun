@@ -1,11 +1,17 @@
 module.exports = {
-  name: 'Gyosun',
-  domain: '//www.gyosun.com/',
-  title: 'This is a title.',
-  description: 'This is a description.',
+  global: {
+    name: 'Gyosun',
+    domain: '//www.gyosun.com/',
+    title: 'Gyosun Jung | Filmmaker | Designer | Software Engineer',
+    description: 'coding with a pen tablet in the film industry',
+    year: () => {
+      const today = new Date();
+      return today.getFullYear();
+    },
+  },
   wwwHome: {
-    title: 'This is a Home title. from Meta.json',
-    description: 'This is a Home description. from Meta.json',
+    title: 'Gyosun Jung | Filmmaker | Designer | Software Engineer :: home',
+    description: 'coding with a pen tablet in the film industry',
   },
   wwwMarko: {
     title: 'This is a Marko page title. from Meta.json',
