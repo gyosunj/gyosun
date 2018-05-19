@@ -12,7 +12,8 @@
     "dev": "npm run node:dev | npm run webpack:dev",
     "dev:debug": "node:debug | npm run webpack:dev",
     "lint:js": "eslint . --cache",
-    "build": "npm run lint:js | npm run webpack:prod"
+    "build": "npm run lint:js | npm run webpack:prod",
+    "postinstall": "npm run webpack:prod"
   },
   "repository": {
     "type": "git",
