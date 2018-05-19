@@ -28,7 +28,7 @@ const APP_ENVS = require('./resource/').APP_CONSTANT.NODE_ENV;
 const config = require('./config');
 
 const commandArgs = process.argv.reduce(parseProcessArgv, {});
-process.env.NODE_ENV = APP_ENVS[process.env.NODE_ENV] || APP_ENVS[commandArgs.env] || APP_ENVS[commandArgs.profile] || 'production';
+process.env.NODE_ENV = process.env.NODE_ENV || APP_ENVS[process.env.NODE_ENV] || APP_ENVS[commandArgs.env] || APP_ENVS[commandArgs.profile] || 'production';
 const httpPort = process.env.PORT || commandArgs.port || config[process.env.NODE_ENV].server.http.port || 5000;
 const webFramework = require('./web-framework');
 
