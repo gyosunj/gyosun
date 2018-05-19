@@ -1,3 +1,3 @@
 
-"heroku-postbuild": "npm run build"
+"heroku-postbuild": "npm run webpack:prod"
 "web": "npm start"

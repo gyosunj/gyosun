@@ -8,11 +8,11 @@
     "node:dev": "node server.js env=DEVELOPMENT",
     "node:debug": "node --inspect-brk=9229 server.js env=DEVELOPMENT",
     "webpack:dev": "webpack --config build/webpack.dev.js",
-    "webpack:prod": "webpack --config build/webpack.prod.js",
+    "webpack:prod": "webpack --config build/webpack.prod.js --progress",
     "dev": "npm run node:dev | npm run webpack:dev",
     "dev:debug": "node:debug | npm run webpack:dev",
     "lint:js": "eslint . --cache",
-    "build": "npm run lint:js && npm run webpack:prod"
+    "build": "npm run lint:js | npm run webpack:prod"
   },
   "repository": {
     "type": "git",
