@@ -1,12 +1,18 @@
 
 <include("../_layout-default/index")>
+    <@title>${ input.pageTitle }</@title>
+    <@description>${ input.pageDescription }</@description>
     <@body>
-        <h1>This is ${ input.pageName } Page</h1>
-        <h2>This is ${ input.pageTitle } Page</h2>
-        <h3>This is ${ input.pageDescription } Page</h3>
-        <h3>Sub Title</h3>
-        <h4>Client Template</h4>
-        <div class="client-template__container"></div>
-        <include('../../partial/iampartial')/>
+    <section class="movie-title">
+        <h3 class="movie-title__title">${ input.pageDescription }</h3>
+    </section>
+    <section class="movie-list">
+        <h4 class="movie-list__title">Movie List</h4>
+        <div class="movie-list__list-container js-movie-list__list-container"></div>
+        <div class="movie-list__button">
+            <button class="movie-list__button-load-movie js-movie-list__button-load-movie">Load A Movie</button>
+        </div>
+    </section>
+    <include('../../partial/marko/iampartial', { year: input.year })/>
     </@body>
 </include>

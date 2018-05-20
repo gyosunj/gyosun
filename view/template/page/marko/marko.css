@@ -1,0 +1,53 @@
+.movie-title {
+  margin: 2rem 1rem;
+  text-align: center;
+}
+
+.movie-list {
+  margin: 2rem 1rem;
+}
+
+.movie-list__title {
+  margin: 1rem 0;
+}
+
+.movie-list__item {
+  display: inline-block;
+  width: 33.33333%;
+  margin: 1rem 0;
+}
+
+.movie-list__button {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.movie-list__button-load-movie {
+  border: 3px solid #ccc;
+  color: #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.movie-list__button-load-movie:hover,
+.movie-list__button-load-movie:active {
+  color: rgb(240, 240, 240);
+  background: #ccc;
+}
+
+.movie-partial {
+  text-align: center;
+}

@@ -10,11 +10,11 @@ module.exports = {
     },
   },
   wwwHome: {
-    title: 'Gyosun Jung | Filmmaker | Designer | Software Engineer :: home',
+    title: 'home :: Gyosun Jung | Filmmaker | Designer | Software Engineer',
     description: 'coding with a pen tablet in the film industry',
   },
   wwwMarko: {
-    title: 'This is a Marko page title. from Meta.json',
-    description: 'This is a Marko page description. from Meta.json',
+    title: 'marko :: Gyosun Jung | Filmmaker | Designer | Software Engineer',
+    description: 'This is a Marko template engine test page.',
   },
 };
